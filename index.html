@@ -3,880 +3,1061 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Solar Eclipse Saga | Author & Sci-Fi Universe</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Plus Jakarta Sans Font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Nelson Mwova | Author & Sci-Fi Universe Architect</title>
     
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-                    },
                     colors: {
-                        sunset: {
-                            50: '#fff7ed',
-                            100: '#ffedd5',
-                            200: '#fed7aa',
-                            300: '#fdba74',
-                            400: '#fb923c',
-                            500: '#f97316', // Vibrant Amber
-                            600: '#ea580c',
-                            700: '#c2410c',
-                            coral: '#ff6b6b', // Coral Pink
-                            gold: '#fbbf24', // Warm Gold
-                            rose: '#f43f5e',
-                            violet: '#6b21a8', // Deep Violet
-                            purple: '#3b0764', // Night Purple
-                            dark: '#1a0b2e', // Sunset Twilight Base
-                            card: 'rgba(38, 18, 54, 0.65)'
-                        }
-                    },
-                    animation: {
-                        'pulse-glow': 'pulseGlow 4s ease-in-out infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                    },
-                    keyframes: {
-                        pulseGlow: {
-                            '0%, 100%': { opacity: 0.6, transform: 'scale(1)' },
-                            '50%': { opacity: 0.9, transform: 'scale(1.05)' },
+                        cosmic: {
+                            950: '#030408',
+                            900: '#070913',
+                            800: '#0f1429',
+                            700: '#1a2240',
                         },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0px)' },
-                            '50%': { transform: 'translateY(-10px)' },
+                        sunset: {
+                            gold: '#f59e0b',
+                            coral: '#f43f5e',
+                            purple: '#8b5cf6',
+                            cyan: '#06b6d4'
                         }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Orbitron', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
                     }
                 }
             }
         }
     </script>
+    
+    <!-- Google Fonts & FontAwesome -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: #12061c;
-            color: #f3f4f6;
-            overflow-x: hidden;
-        }
-
-        /* Glassmorphism Soft Cards */
         .glass-panel {
-            background: rgba(35, 16, 48, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(251, 146, 60, 0.2);
-            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5), 0 0 20px 0 rgba(249, 115, 22, 0.1);
-        }
-
-        .glass-panel-hover {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .glass-panel-hover:hover {
-            border-color: rgba(251, 146, 60, 0.5);
-            box-shadow: 0 15px 35px -10px rgba(249, 115, 22, 0.25), 0 0 25px 5px rgba(255, 107, 107, 0.2);
-            transform: translateY(-3px);
-        }
-
-        .glass-nav {
-            background: rgba(18, 6, 28, 0.85);
+            background: rgba(15, 20, 41, 0.75);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(251, 146, 60, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
-
-        /* Gradient Text */
-        .text-gradient-sunset {
-            background: linear-gradient(135deg, #fbbf24 0%, #ff6b6b 50%, #d8b4fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .glass-card {
+            background: rgba(26, 34, 64, 0.45);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(245, 158, 11, 0.18);
         }
-
-        .text-gradient-warm {
-            background: linear-gradient(135deg, #fed7aa 0%, #f97316 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        .glow-gold {
+            box-shadow: 0 0 25px -5px rgba(245, 158, 11, 0.35);
         }
-
-        /* Sunset Glow Buttons */
-        .btn-sunset-primary {
-            background: linear-gradient(135deg, #f97316 0%, #ff6b6b 100%);
-            color: #ffffff;
-            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
-            transition: all 0.3s ease;
+        .glow-coral {
+            box-shadow: 0 0 25px -5px rgba(244, 63, 94, 0.35);
         }
-        .btn-sunset-primary:hover {
-            background: linear-gradient(135deg, #ea580c 0%, #f43f5e 100%);
-            box-shadow: 0 6px 25px rgba(255, 107, 107, 0.6);
-            transform: translateY(-2px);
+        .glow-cyan {
+            box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.35);
         }
-
-        /* Custom Scrollbar */
+        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #12061c;
+            background: #070913;
         }
         ::-webkit-scrollbar-thumb {
-            background: #3b154c;
+            background: #1a2240;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #f97316;
+            background: #f59e0b;
         }
     </style>
+
+    <!-- Fallback SVG Generators for Cloudflare Pages Deployment -->
+    <script>
+        // Fallback for Book Covers
+        function loadSvgFallback(imgElement, titleText, subtitleText) {
+            const svgMarkup = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23070913"/><stop offset="50%" stop-color="%231a2240"/><stop offset="100%" stop-color="%230f1429"/></linearGradient></defs><rect width="400" height="600" fill="url(%23g)"/><circle cx="200" cy="220" r="90" fill="none" stroke="%23f59e0b" stroke-width="2" opacity="0.4"/><circle cx="200" cy="220" r="120" fill="none" stroke="%23f43f5e" stroke-width="1" opacity="0.3"/><path d="M140 380 L260 380 L200 280 Z" fill="%23f59e0b" opacity="0.2"/><text x="200" y="440" fill="%23ffffff" font-family="sans-serif" font-weight="bold" font-size="24" text-anchor="middle">${encodeURIComponent(titleText)}</text><text x="200" y="475" fill="%23f59e0b" font-family="sans-serif" font-size="16" text-anchor="middle">${encodeURIComponent(subtitleText)}</text><text x="200" y="520" fill="%2306b6d4" font-family="sans-serif" font-size="12" text-anchor="middle">[ Upload ${imgElement.getAttribute('data-expected-file') || 'image.jpg'} ]</text></svg>`;
+            imgElement.src = svgMarkup;
+        }
+
+        // Fallback for Logo
+        function loadLogoSvgFallback(imgElement) {
+            const svgMarkup = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="%23070913" stroke="%23f59e0b" stroke-width="3"/><circle cx="50" cy="50" r="22" fill="%23f43f5e"/><path d="M50 5 L50 95 M5 50 L95 50" stroke="%23f59e0b" stroke-width="1.5" opacity="0.6"/><text x="50" y="55" fill="%23ffffff" font-family="sans-serif" font-weight="bold" font-size="18" text-anchor="middle">NM</text></svg>`;
+            imgElement.src = svgMarkup;
+        }
+
+        // Fallback for Author Profile Photo
+        function loadAuthorSvgFallback(imgElement) {
+            const svgMarkup = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"><defs><linearGradient id="ag" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="%231a2240"/><stop offset="100%" stop-color="%23070913"/></linearGradient></defs><rect width="400" height="500" fill="url(%23ag)"/><circle cx="200" cy="180" r="80" fill="%230f1429" stroke="%23f59e0b" stroke-width="2"/><circle cx="200" cy="150" r="35" fill="%23f59e0b" opacity="0.3"/><path d="M120 250 C120 200 280 200 280 250 L280 300 L120 300 Z" fill="%23f59e0b" opacity="0.3"/><text x="200" y="360" fill="%23ffffff" font-family="sans-serif" font-weight="bold" font-size="22" text-anchor="middle">Nelson Mwova</text><text x="200" y="395" fill="%23f59e0b" font-family="sans-serif" font-size="14" text-anchor="middle">Author & Universe Architect</text><text x="200" y="440" fill="%2306b6d4" font-family="sans-serif" font-size="12" text-anchor="middle">[ Upload author.jpg ]</text></svg>`;
+            imgElement.src = svgMarkup;
+        }
+    </script>
 </head>
-<body class="relative min-h-screen text-slate-100 selection:bg-sunset-500 selection:text-white">
+<body class="bg-cosmic-900 text-slate-100 font-sans selection:bg-sunset-gold selection:text-cosmic-950 min-h-screen relative overflow-x-hidden">
 
-    <!-- Background Canvas for Warm Golden/Sunset Constellation -->
-    <canvas id="constellationCanvas" class="fixed inset-0 pointer-events-none z-0"></canvas>
+    <!-- Interactive Constellation Canvas Background -->
+    <canvas id="constellationCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-40"></canvas>
 
-    <!-- Ambient Sunset Background Glows -->
-    <div class="fixed top-0 left-1/4 w-96 h-96 bg-sunset-500/15 rounded-full blur-3xl pointer-events-none animate-pulse-glow z-0"></div>
-    <div class="fixed bottom-10 right-10 w-[30rem] h-[30rem] bg-sunset-violet/20 rounded-full blur-3xl pointer-events-none z-0"></div>
-    <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40rem] h-[40rem] bg-sunset-coral/10 rounded-full blur-3xl pointer-events-none z-0"></div>
-
-    <!-- Navigation Header -->
-    <header class="sticky top-0 z-40 glass-nav transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand / Logo -->
-            <a href="#" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sunset-500 via-sunset-coral to-sunset-gold p-0.5 transition-transform group-hover:scale-105">
-                    <div class="w-full h-full bg-sunset-purple rounded-[10px] flex items-center justify-center">
-                        <i class="fa-solid font-bold fa-sun text-sunset-gold text-lg"></i>
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 glass-panel border-b border-slate-800/80 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Brand Logo & Identifier -->
+                <!-- IMAGE LOCATION: Replace with logo.jpg -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-11 h-11 rounded-full border border-sunset-gold/50 flex items-center justify-center overflow-hidden bg-cosmic-950 glow-gold group-hover:scale-105 transition-transform">
+                        <img id="brandLogoImg" src="logo.jpg" data-expected-file="logo.jpg" alt="Nelson Mwova Logo" class="w-full h-full object-cover" onerror="loadLogoSvgFallback(this)">
                     </div>
-                </div>
-                <div>
-                    <span class="text-xl font-bold tracking-tight text-gradient-sunset block leading-none">Aethelgard</span>
-                    <span class="text-[10px] tracking-widest text-sunset-300 uppercase font-semibold">Eclipse Chronicles</span>
-                </div>
-            </a>
-
-            <!-- Desktop Navigation Links -->
-            <nav class="hidden md:flex items-center gap-1 lg:gap-2">
-                <a href="#author" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-200 hover:text-sunset-gold hover:bg-white/5 transition">Author</a>
-                <a href="#books" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-200 hover:text-sunset-gold hover:bg-white/5 transition">Books</a>
-                <a href="#encyclopedia" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-200 hover:text-sunset-gold hover:bg-white/5 transition">World Encyclopedia</a>
-                <a href="#short-stories" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-200 hover:text-sunset-gold hover:bg-white/5 transition">Short Stories</a>
-                <a href="#glossary" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-200 hover:text-sunset-gold hover:bg-white/5 transition">Glossary</a>
-                <a href="#concepts" class="px-3 py-2 rounded-lg text-sm font-medium text-slate-200 hover:text-sunset-gold hover:bg-white/5 transition">Story Concepts</a>
-            </nav>
-
-            <!-- Buy Quick Link & Mobile Toggle -->
-            <div class="flex items-center gap-3">
-                <a href="#books" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold btn-sunset-primary">
-                    <span>Get The Saga</span>
-                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                    <div class="flex flex-col">
+                        <span class="font-display font-bold text-base sm:text-lg tracking-wider text-white group-hover:text-sunset-gold transition-colors">Nelson Mwova</span>
+                        <span class="text-xs text-sunset-gold/90 tracking-widest uppercase font-mono">Astral Storylines</span>
+                    </div>
                 </a>
-                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg text-slate-300 hover:text-white hover:bg-white/10" aria-label="Toggle Menu">
-                    <i class="fa-solid fa-bars text-xl"></i>
-                </button>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center space-x-7">
+                    <a href="#author" class="text-xs font-mono uppercase tracking-wider text-slate-300 hover:text-sunset-gold transition-colors">Author</a>
+                    <a href="#books" class="text-xs font-mono uppercase tracking-wider text-slate-300 hover:text-sunset-gold transition-colors">Books</a>
+                    <a href="#encyclopedia" class="text-xs font-mono uppercase tracking-wider text-slate-300 hover:text-sunset-gold transition-colors">Encyclopedia</a>
+                    <a href="#universe-stories" class="text-xs font-mono uppercase tracking-wider text-slate-300 hover:text-sunset-gold transition-colors">Universe Stories</a>
+                    <a href="#glossary" class="text-xs font-mono uppercase tracking-wider text-slate-300 hover:text-sunset-gold transition-colors">Glossary</a>
+                    <a href="#writing-updates" class="text-xs font-mono uppercase tracking-wider text-slate-300 hover:text-sunset-gold transition-colors">Writing Updates</a>
+                </nav>
+
+                <!-- Quicklink & Mobile Toggle -->
+                <div class="flex items-center space-x-4">
+                    <a href="#books" class="hidden sm:inline-flex items-center px-5 py-2.5 rounded-full text-xs font-display font-bold uppercase tracking-widest bg-gradient-to-r from-sunset-gold to-sunset-coral text-cosmic-950 hover:opacity-90 glow-gold transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-book-sparkles mr-2"></i> The Trilogy
+                    </a>
+
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="lg:hidden p-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-cosmic-700/50 focus:outline-none transition-colors" aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobileMenu" class="hidden md:hidden glass-panel border-t border-sunset-500/20 px-4 pt-3 pb-6 space-y-2">
-            <a href="#author" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-sunset-500/20">Author</a>
-            <a href="#books" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-sunset-500/20">Books</a>
-            <a href="#encyclopedia" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-sunset-500/20">World Encyclopedia</a>
-            <a href="#short-stories" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-sunset-500/20">Short Stories</a>
-            <a href="#glossary" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-sunset-500/20">Glossary</a>
-            <a href="#concepts" class="block px-3 py-2 rounded-lg text-base font-medium text-slate-200 hover:bg-sunset-500/20">Story Concepts</a>
-            <a href="#books" class="block w-full text-center mt-4 px-4 py-2.5 rounded-xl font-semibold btn-sunset-primary">Get The Saga</a>
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobileMenu" class="hidden lg:hidden glass-panel border-t border-slate-800 px-4 pt-4 pb-6 space-y-3">
+            <a href="#author" class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-mono uppercase text-slate-200 hover:text-sunset-gold hover:bg-cosmic-800 transition-colors">Author</a>
+            <a href="#books" class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-mono uppercase text-slate-200 hover:text-sunset-gold hover:bg-cosmic-800 transition-colors">Books</a>
+            <a href="#encyclopedia" class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-mono uppercase text-slate-200 hover:text-sunset-gold hover:bg-cosmic-800 transition-colors">Encyclopedia</a>
+            <a href="#universe-stories" class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-mono uppercase text-slate-200 hover:text-sunset-gold hover:bg-cosmic-800 transition-colors">Universe Stories</a>
+            <a href="#glossary" class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-mono uppercase text-slate-200 hover:text-sunset-gold hover:bg-cosmic-800 transition-colors">Glossary</a>
+            <a href="#writing-updates" class="mobile-nav-link block px-3 py-2 rounded-md text-sm font-mono uppercase text-slate-200 hover:text-sunset-gold hover:bg-cosmic-800 transition-colors">Writing Updates</a>
+            <div class="pt-2">
+                <a href="#books" class="mobile-nav-link block text-center w-full px-5 py-3 rounded-xl text-xs font-display font-bold uppercase tracking-widest bg-gradient-to-r from-sunset-gold to-sunset-coral text-cosmic-950 glow-gold">
+                    The Trilogy
+                </a>
+            </div>
         </div>
     </header>
 
     <!-- Main Content Container -->
-    <main class="relative z-10 space-y-24 pb-20">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-24">
 
-        <!-- HERO & AUTHOR SECTION -->
-        <section id="author" class="pt-10 lg:pt-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12 space-y-4">
-                <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-sunset-500/10 border border-sunset-500/30 text-sunset-300">
-                    <i class="fa-solid fa-feather-pointed text-sunset-gold"></i> Meet the Architect
-                </span>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                    Crafting Worlds Beneath <span class="text-gradient-sunset">Twin Suns</span>
-                </h1>
-                <p class="text-slate-300 text-base sm:text-lg font-normal leading-relaxed">
-                    Step into an expanse of cosmic wonder, warm stellar winds, and timeless human resilience.
-                </p>
-            </div>
+        <!-- Author & Hero Section -->
+        <section id="author" class="relative pt-6 pb-6">
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-sunset-gold/10 rounded-full blur-3xl pointer-events-none"></div>
 
-            <!-- Author Bio Card -->
-            <div class="glass-panel rounded-3xl p-6 sm:p-8 lg:p-10 border border-sunset-500/20">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                    <!-- Author Image -->
-                    <div class="lg:col-span-4 flex flex-col items-center">
-                        <div class="relative w-48 h-48 sm:w-64 sm:h-64 rounded-2xl overflow-hidden shadow-2xl border-2 border-sunset-500/40">
-                            <img id="authorImg" src="author.jpg" alt="Author Portrait" class="w-full h-full object-cover" onerror="loadSvgAuthorFallback(this)">
-                            <div class="absolute inset-0 bg-gradient-to-t from-sunset-dark/80 via-transparent to-transparent"></div>
-                        </div>
-                        <div class="mt-4 flex gap-3 text-sunset-gold">
-                            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sunset-500 flex items-center justify-center text-white transition"><i class="fa-brands fa-x-twitter text-sm"></i></a>
-                            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sunset-500 flex items-center justify-center text-white transition"><i class="fa-brands fa-instagram text-sm"></i></a>
-                            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sunset-500 flex items-center justify-center text-white transition"><i class="fa-brands fa-goodreads-g text-sm"></i></a>
-                            <a href="#" class="w-9 h-9 rounded-full bg-white/10 hover:bg-sunset-500 flex items-center justify-center text-white transition"><i class="fa-solid fa-envelope text-sm"></i></a>
-                        </div>
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start relative z-10">
+                
+                <!-- Left Hero & Bio -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full text-xs font-mono bg-sunset-gold/10 border border-sunset-gold/30 text-sunset-gold">
+                        <span class="w-2 h-2 rounded-full bg-sunset-gold animate-pulse"></span>
+                        <span>Meet the Architect</span>
                     </div>
 
-                    <!-- Author Details -->
-                    <div class="lg:col-span-8 space-y-4">
-                        <span class="text-xs font-semibold text-sunset-gold tracking-widest uppercase">Sci-Fi & Fantasy Worldbuilder</span>
-                        <h2 class="text-3xl font-bold text-white">About the Author</h2>
-                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                            Welcome to my corner of the cosmos! As an author fascinated by astronomy, ancient mythologies, and deep-space opera, I created the <strong class="text-sunset-gold">Solar Eclipse Saga</strong> to combine high-stakes galactic intrigue with deeply human stories of discovery.
-                        </p>
-                        <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
-                            Book I is published and available worldwide across all major retailers. <strong class="text-sunset-coral">Books 2 and 3 of the trilogy are currently actively in writing</strong>, with chapter updates and exclusive previews regularly released right here in the Short Stories and Concepts archives.
-                        </p>
+                    <h1 class="font-display text-4xl sm:text-6xl font-black tracking-tight text-white leading-none">
+                        Nelson <span class="text-transparent bg-clip-text bg-gradient-to-r from-sunset-gold via-sunset-coral to-sunset-cyan">Mwova</span>
+                    </h1>
 
-                        <!-- Writing Progress Overview Widget -->
-                        <div class="pt-2 grid grid-cols-1 sm:grid-cols-3 gap-3">
-                            <div class="p-3 rounded-xl bg-white/5 border border-white/5 text-center">
-                                <span class="text-xs text-slate-400 block">Book 1</span>
-                                <span class="text-xs font-bold text-emerald-400 flex items-center justify-center gap-1 mt-1">
-                                    <i class="fa-solid fa-circle-check"></i> Published
-                                </span>
+                    <h2 class="text-xl sm:text-2xl font-semibold text-slate-300">
+                        Crafting Tales of Duality
+                    </h2>
+
+                    <p class="text-base sm:text-lg text-slate-300 italic border-l-2 border-sunset-gold/80 pl-4 py-1">
+                        "Step into the expanse of three tales, three universal constants and three fates intertwined."
+                    </p>
+
+                    <!-- Author Profile Image & Card -->
+                    <div class="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center glass-panel p-6 rounded-2xl border border-slate-800">
+                        
+                        <!-- Author Photo Column -->
+                        <!-- IMAGE LOCATION: Replace with author.jpg -->
+                        <div class="sm:col-span-5 flex justify-center">
+                            <div class="w-full max-w-[200px] aspect-[4/5] rounded-xl overflow-hidden shadow-xl border-2 border-sunset-gold/40 glow-gold relative group">
+                                <img id="authorProfileImg" src="author.jpg" data-expected-file="author.jpg" alt="Nelson Mwova - Author Photo" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="loadAuthorSvgFallback(this)">
+                                <div class="absolute bottom-2 left-2 right-2 bg-cosmic-950/80 backdrop-blur-md px-2 py-1 rounded text-center">
+                                    <span class="text-[10px] font-mono text-sunset-gold uppercase tracking-wider">Sci-Fi Author</span>
+                                </div>
                             </div>
-                            <div class="p-3 rounded-xl bg-white/5 border border-white/5 text-center">
-                                <span class="text-xs text-slate-400 block">Book 2</span>
-                                <span class="text-xs font-bold text-sunset-gold flex items-center justify-center gap-1 mt-1">
-                                    <i class="fa-solid fa-pen-nib animate-pulse"></i> In Writing (65%)
-                                </span>
-                            </div>
-                            <div class="p-3 rounded-xl bg-white/5 border border-white/5 text-center">
-                                <span class="text-xs text-slate-400 block">Book 3</span>
-                                <span class="text-xs font-bold text-sunset-coral flex items-center justify-center gap-1 mt-1">
-                                    <i class="fa-solid fa-pen-nib"></i> Outline & Drafting
-                                </span>
+                        </div>
+
+                        <!-- Narrative & Bio Text -->
+                        <div class="sm:col-span-7 space-y-3">
+                            <h3 class="font-display font-bold text-lg text-white flex items-center">
+                                <i class="fa-solid fa-atom text-sunset-gold mr-2"></i> Welcome to the Astral Universe!
+                            </h3>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                As an author fascinated by the concepts of universal laws, alien civilizations, and the concept of duality, I created <strong class="text-sunset-gold">The Astral Trilogy</strong> to combine high-stakes galactic intrigue with deeply human narratives of pain, hope and redemption.
+                            </p>
+                            <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                                Book I is published and available worldwide on Amazon and Kobo. <strong class="text-sunset-coral">Books 2 and 3 of the trilogy are currently actively in writing</strong>, with chapter updates and exclusive previews regularly released right here in the Short Stories and Concepts archives.
+                            </p>
+                            
+                            <!-- Social Connect Badges -->
+                            <div class="pt-2 flex flex-wrap items-center gap-2">
+                                <a href="https://substack.com/@nelsonmwania?utm_source=share&utm_medium=android&r=96qjfj" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-cosmic-800 hover:bg-sunset-gold hover:text-cosmic-950 text-slate-300 flex items-center justify-center transition-colors" title="Substack">
+                                    <i class="fa-solid fa-pen-nib"></i>
+                                </a>
+                                <a href="https://www.instagram.com/nelson_mwania?mdxt=cW1sMXRlaG15d2hs" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-cosmic-800 hover:bg-sunset-coral hover:text-white text-slate-300 flex items-center justify-center transition-colors" title="Instagram">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                                <a href="https://www.reddit.com/user/Individual-Step-4011/" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-lg bg-cosmic-800 hover:bg-orange-500 hover:text-white text-slate-300 flex items-center justify-center transition-colors" title="Reddit">
+                                    <i class="fa-brands fa-reddit-alien"></i>
+                                </a>
+                                <a href="mailto:astralabysske@gmail.com" class="w-9 h-9 rounded-lg bg-cosmic-800 hover:bg-sunset-cyan hover:text-cosmic-950 text-slate-300 flex items-center justify-center transition-colors" title="Email Contact">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- Right Column: Writing Progress Overview Widget -->
+                <div id="writing-updates" class="lg:col-span-5">
+                    <div class="glass-panel p-6 sm:p-8 rounded-3xl border border-sunset-gold/30 glow-gold relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-sunset-coral/10 rounded-full blur-2xl pointer-events-none"></div>
+                        
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="font-display font-bold text-xl text-white flex items-center">
+                                <i class="fa-solid fa-chart-line text-sunset-gold mr-3"></i> Writing Progress
+                            </h3>
+                            <span class="px-3 py-1 rounded-full text-[10px] font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">Active Live Tracking</span>
+                        </div>
+
+                        <div class="space-y-5">
+                            <!-- Book 1 -->
+                            <div class="p-4 rounded-xl bg-cosmic-950/60 border border-slate-800 relative overflow-hidden">
+                                <div class="flex justify-between items-start mb-2">
+                                    <div>
+                                        <span class="text-xs font-mono text-sunset-gold">BOOK I</span>
+                                        <h4 class="font-display font-bold text-white text-base sm:text-lg">Astral Abyss</h4>
+                                    </div>
+                                    <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-500/20 text-emerald-300">Published</span>
+                                </div>
+                                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden mt-3">
+                                    <div class="bg-gradient-to-r from-emerald-500 to-emerald-400 h-full w-full"></div>
+                                </div>
+                                <p class="text-xs text-slate-400 mt-2"><i class="fa-solid fa-check mr-1 text-emerald-400"></i> Available worldwide on Amazon & Kobo.</p>
+                            </div>
+
+                            <!-- Book 2 -->
+                            <div class="p-4 rounded-xl bg-cosmic-950/60 border border-sunset-gold/30 relative overflow-hidden">
+                                <div class="flex justify-between items-start mb-2">
+                                    <div>
+                                        <span class="text-xs font-mono text-sunset-gold">BOOK II</span>
+                                        <h4 class="font-display font-bold text-white text-base sm:text-lg">Astral Knight</h4>
+                                    </div>
+                                    <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-sunset-gold/20 text-sunset-gold animate-pulse">In Writing</span>
+                                </div>
+                                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden mt-3">
+                                    <div class="bg-gradient-to-r from-sunset-gold to-sunset-coral h-full w-3/4"></div>
+                                </div>
+                                <p class="text-xs text-slate-300 mt-2"><i class="fa-solid fa-pen mr-1 text-sunset-gold"></i> Chapter Seventeen (Unedited) in progress.</p>
+                            </div>
+
+                            <!-- Book 3 -->
+                            <div class="p-4 rounded-xl bg-cosmic-950/60 border border-slate-800 relative overflow-hidden">
+                                <div class="flex justify-between items-start mb-2">
+                                    <div>
+                                        <span class="text-xs font-mono text-sunset-coral">BOOK III</span>
+                                        <h4 class="font-display font-bold text-white text-base sm:text-lg">Astral Divine</h4>
+                                    </div>
+                                    <span class="px-2.5 py-1 rounded-full text-xs font-semibold bg-purple-500/20 text-purple-300">Drafting</span>
+                                </div>
+                                <div class="w-full bg-slate-800 h-2 rounded-full overflow-hidden mt-3">
+                                    <div class="bg-gradient-to-r from-purple-500 to-sunset-coral h-full w-1/4"></div>
+                                </div>
+                                <p class="text-xs text-slate-400 mt-2"><i class="fa-solid fa-compass-drafting mr-1 text-purple-400"></i> Outline & deep lore conception phase.</p>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-4 border-t border-slate-800 text-center">
+                            <a href="https://substack.com/@nelsonmwania?utm_source=share&utm_medium=android&r=96qjfj" target="_blank" rel="noopener noreferrer" class="text-xs font-semibold text-sunset-gold hover:underline inline-flex items-center">
+                                Follow live chapter releases on Substack <i class="fa-solid fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
-        <!-- BOOK SHOWCASE SECTION WITH SIDEBAR & TRILOGY STATUS -->
-        <section id="books" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-10">
-                <span class="text-xs font-bold text-sunset-gold tracking-widest uppercase">The Trilogy Arc</span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Explore the Books</h2>
-                <p class="text-slate-300 text-sm mt-2">Book 1 is available now, while Books 2 & 3 are currently in development.</p>
+        <!-- BOOK SHOWCASE SECTION -->
+        <section id="books" class="py-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="text-xs font-mono uppercase tracking-widest text-sunset-gold">The Trilogy</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-black text-white">Explore the Books</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Book 1 is available now, while Books 2 & 3 are currently actively in writing.
+                </p>
+
+                <!-- Book Selector Tabs -->
+                <div class="flex flex-wrap justify-center gap-3 pt-4">
+                    <button onclick="switchBook(1)" id="bookTab1" class="px-6 py-2.5 rounded-full text-xs font-display font-bold uppercase tracking-wider bg-sunset-gold text-cosmic-950 transition-all glow-gold">Book 1: Astral Abyss</button>
+                    <button onclick="switchBook(2)" id="bookTab2" class="px-6 py-2.5 rounded-full text-xs font-display font-bold uppercase tracking-wider bg-cosmic-800 text-slate-300 hover:text-white transition-all">Book 2: Astral Knight</button>
+                    <button onclick="switchBook(3)" id="bookTab3" class="px-6 py-2.5 rounded-full text-xs font-display font-bold uppercase tracking-wider bg-cosmic-800 text-slate-300 hover:text-white transition-all">Book 3: Astral Divine</button>
+                </div>
             </div>
 
-            <!-- Book Showcase Container -->
-            <div class="glass-panel rounded-3xl p-6 sm:p-8 lg:p-10 border border-sunset-500/20">
-                <!-- Book Selector Tabs -->
-                <div class="flex flex-wrap items-center justify-center gap-3 mb-8 pb-6 border-b border-white/10">
-                    <button onclick="switchBook('book1')" id="tab-book1" class="book-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 bg-gradient-to-r from-sunset-500 to-sunset-coral text-white shadow-lg shadow-sunset-500/30">
-                        <i class="fa-solid fa-book-bookmark"></i> Book I: Dawn of Solstice
-                    </button>
-                    <button onclick="switchBook('book2')" id="tab-book2" class="book-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 text-slate-300 hover:text-white hover:bg-white/5">
-                        <i class="fa-solid fa-feather"></i> Book II: Golden Horizons <span class="text-[10px] bg-sunset-gold/20 text-sunset-gold px-2 py-0.5 rounded-full border border-sunset-gold/30">Writing</span>
-                    </button>
-                    <button onclick="switchBook('book3')" id="tab-book3" class="book-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 text-slate-300 hover:text-white hover:bg-white/5">
-                        <i class="fa-solid fa-feather"></i> Book III: Twilight Citadel <span class="text-[10px] bg-sunset-coral/20 text-sunset-coral px-2 py-0.5 rounded-full border border-sunset-coral/30">Writing</span>
-                    </button>
-                </div>
-
-                <!-- Book Details Grid -->
-                <div id="bookDisplay" class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <!-- Book Display Container -->
+            <div class="glass-panel p-6 sm:p-12 rounded-3xl border border-slate-800 relative">
+                
+                <!-- BOOK 1 CONTENT -->
+                <div id="bookContent1" class="book-pane grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                     <!-- Cover Display Column -->
-                    <div class="lg:col-span-5 flex flex-col items-center">
-                        <div class="relative group w-full max-w-sm aspect-[2/3] rounded-2xl overflow-hidden shadow-2xl border border-sunset-500/30 transition-all duration-500 hover:scale-[1.02]">
-                            <img id="bookCoverImg" src="book1.jpg" alt="Book Cover" class="w-full h-full object-cover" onerror="loadSvgFallback(this, 'Dawn of Solstice', 'Book I')">
-                            <div class="absolute inset-0 bg-gradient-to-t from-sunset-dark/90 via-transparent to-transparent opacity-80"></div>
-                            <div class="absolute bottom-4 left-4 right-4 text-center">
-                                <span id="bookBadge" class="px-3 py-1 bg-emerald-500/80 text-white text-xs font-bold rounded-full backdrop-blur-md">AVAILABLE NOW</span>
-                            </div>
+                    <!-- IMAGE LOCATION: Replace with book1.jpg -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="w-full max-w-sm aspect-[2/3] rounded-2xl overflow-hidden shadow-2xl border border-sunset-gold/30 glow-gold relative group">
+                            <img id="book1CoverImg" src="book1.jpg" data-expected-file="book1.jpg" alt="Astral Abyss Book Cover" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="loadSvgFallback(this, 'Astral Abyss', 'Book I')">
+                            <div class="absolute inset-0 bg-gradient-to-t from-cosmic-950/80 via-transparent to-transparent opacity-60"></div>
+                            <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-mono bg-emerald-500 text-cosmic-950 font-bold shadow-md">Available Now</span>
                         </div>
                     </div>
 
-                    <!-- Right: Vertical Sidebar & Synopsis Information -->
+                    <!-- Book Info Column -->
                     <div class="lg:col-span-7 space-y-6">
-                        <div class="flex items-start justify-between gap-4">
-                            <div>
-                                <span id="bookSubtitle" class="text-sm font-semibold text-sunset-gold tracking-wide uppercase">The Eclipse Saga · Part 1</span>
-                                <h2 id="bookTitle" class="text-3xl sm:text-4xl font-bold text-white mt-1">Dawn of Solstice</h2>
-                            </div>
-                            <!-- Live Status Indicator -->
-                            <div id="statusPill" class="px-3 py-1.5 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-2">
-                                <i class="fa-solid fa-circle text-[8px]"></i> <span>Published</span>
-                            </div>
+                        <div class="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-400">
+                            <span><i class="fa-solid fa-file-lines text-sunset-gold mr-1.5"></i> 425 Pages</span>
+                            <span>•</span>
+                            <span class="text-sunset-gold font-bold"><i class="fa-solid fa-star mr-1"></i> 4.9/5 Rating</span>
+                            <span>•</span>
+                            <span class="text-emerald-400">Published Edition</span>
                         </div>
 
-                        <!-- Key Metrics Bar -->
-                        <div class="grid grid-cols-3 gap-3 p-3 rounded-xl bg-white/5 border border-white/5 text-center">
-                            <div>
-                                <span class="text-xs text-slate-400 block">Pages / Status</span>
-                                <span id="bookPages" class="text-sm font-bold text-sunset-300">482 Pages</span>
-                            </div>
-                            <div>
-                                <span class="text-xs text-slate-400 block">Release Schedule</span>
-                                <span id="bookRelease" class="text-sm font-bold text-sunset-300">Available Now</span>
-                            </div>
-                            <div>
-                                <span class="text-xs text-slate-400 block">Rating / Progress</span>
-                                <span id="bookRating" class="text-sm font-bold text-sunset-gold"><i class="fa-solid fa-star text-xs"></i> 4.9 / 5</span>
-                            </div>
+                        <h3 class="font-display text-3xl sm:text-4xl font-black text-white">Astral Abyss</h3>
+
+                        <!-- Synopsis Paragraphs -->
+                        <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <p>In an alternate world, chief marine biologists Anton Baldacci and Saraya Sumar discover a new life-form within the abyssal depths of the Diamantina Trench during the last day of the multi-national ‘Endeavour’ mission.</p>
+                            <p>But the ‘life’ they uncover is beyond natural and is a threat to all life on the planet. Its discovery sets off a chain of events that leads to a global military operation and a galactic conflict.</p>
+                            <p>At the centre of everything, Anton is faced with a life-altering dilemma: to lose all he holds dear, or save them at the cost of himself—as powers from beyond the Xzeverin cluster seek to annihilate an uncontrollable and powerful human being that ascended on a tiny, pale blue dot.</p>
                         </div>
 
-                        <!-- Interactive Synopsis Paragraphs -->
-                        <div id="bookSynopsis" class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
-                            <p>When the twin suns of Aethelgard align in a rare thousand-year solstice, the ancient grid of solar conduits reactivates, revealing a forgotten stellar path through the veil of space.</p>
-                            <p>Captain Lyra Vance must navigate a delicate political climate between orbital colonies while deciphering golden transmissions that hint at a warm, habitable world beyond known star charts.</p>
-                        </div>
-
-                        <!-- Retailer Links or Progress Teaser Box -->
-                        <div id="buy-options" class="pt-4 space-y-3">
-                            <span id="buyHeader" class="text-xs font-semibold text-slate-400 uppercase tracking-wider block">Purchase or Stream On:</span>
-                            <div id="retailerContainer" class="flex flex-wrap gap-2.5">
-                                <a href="https://amazon.com" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-sunset-500/20 border border-white/10 hover:border-sunset-500/40 text-xs sm:text-sm font-semibold flex items-center gap-2 transition">
-                                    <i class="fa-brands fa-amazon text-sunset-gold"></i> Amazon Kindle
+                        <!-- Retailer Links -->
+                        <div class="pt-4 border-t border-slate-800">
+                            <p class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-3">Get Your Copy Worldwide:</p>
+                            <div class="flex flex-wrap gap-3">
+                                <a href="https://www.amazon.com/dp/9914509312" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-sunset-gold text-cosmic-950 font-display font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-all flex items-center shadow-lg">
+                                    <i class="fa-brands fa-amazon mr-2 text-base"></i> Amazon Kindle
                                 </a>
-                                <a href="https://audible.com" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-sunset-500/20 border border-white/10 hover:border-sunset-500/40 text-xs sm:text-sm font-semibold flex items-center gap-2 transition">
-                                    <i class="fa-solid fa-headphones text-sunset-coral"></i> Audible
+                                <a href="https://www.kobo.com" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-cosmic-800 hover:bg-sunset-coral hover:text-white text-slate-200 font-display font-bold text-xs uppercase tracking-wider transition-all flex items-center border border-slate-700">
+                                    <i class="fa-solid fa-book-open mr-2 text-sunset-gold"></i> Kobo Books
                                 </a>
-                                <a href="https://barnesandnoble.com" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-sunset-500/20 border border-white/10 hover:border-sunset-500/40 text-xs sm:text-sm font-semibold flex items-center gap-2 transition">
-                                    <i class="fa-solid fa-book text-sunset-300"></i> Barnes & Noble
-                                </a>
-                                <a href="https://apple.com/apple-books" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-sunset-500/20 border border-white/10 hover:border-sunset-500/40 text-xs sm:text-sm font-semibold flex items-center gap-2 transition">
-                                    <i class="fa-brands fa-apple text-slate-200"></i> Apple Books
-                                </a>
-                                <a href="https://kobo.com" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-sunset-500/20 border border-white/10 hover:border-sunset-500/40 text-xs sm:text-sm font-semibold flex items-center gap-2 transition">
-                                    <i class="fa-solid fa-tablet-screen-button text-sunset-gold"></i> Kobo
+                                <a href="https://barnesandnoble.com" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-cosmic-800 hover:bg-slate-700 text-slate-200 font-display font-bold text-xs uppercase tracking-wider transition-all flex items-center border border-slate-700">
+                                    <i class="fa-solid fa-store mr-2 text-sunset-gold"></i> Barnes & Noble
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
+
+                <!-- BOOK 2 CONTENT (Hidden by default) -->
+                <div id="bookContent2" class="book-pane hidden grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <!-- Cover Display Column -->
+                    <!-- IMAGE LOCATION: Replace with book2.jpg -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="w-full max-w-sm aspect-[2/3] rounded-2xl overflow-hidden shadow-2xl border border-sunset-coral/30 glow-coral relative group">
+                            <img id="book2CoverImg" src="book2.jpg" data-expected-file="book2.jpg" alt="Astral Knight Book Cover" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="loadSvgFallback(this, 'Astral Knight', 'Book II')">
+                            <div class="absolute inset-0 bg-gradient-to-t from-cosmic-950/80 via-transparent to-transparent opacity-60"></div>
+                            <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-mono bg-sunset-coral text-white font-bold shadow-md">Actively in Writing</span>
+                        </div>
+                    </div>
+
+                    <!-- Book Info Column -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-400">
+                            <span><i class="fa-solid fa-file-lines text-sunset-coral mr-1.5"></i> 500+ Pages Planned</span>
+                            <span>•</span>
+                            <span class="text-sunset-coral font-bold"><i class="fa-solid fa-pen-nib mr-1"></i> Status: In Writing</span>
+                        </div>
+
+                        <h3 class="font-display text-3xl sm:text-4xl font-black text-white">Astral Knight</h3>
+
+                        <!-- Synopsis Paragraphs -->
+                        <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <p>Building on the concepts of the first book, a new tale set in the distant Pylis Galaxy on the Planet L'karim, where one of the first civilizations of the galaxies is forming. The tale follows the story of Auron Skye, a noble son to a Lord Bearer of the House Skye and his journey in learning the mathematical arts of divining constellations and stellar essence in hopes of one day joining the Knights Order. Born with a rare condition that limits his speech and hearing, he must wade through these unique challenges, in a world not built for him. For becoming a Knight and succeeding the legacy of his father is his life's purpose.</p>
+                            <p>Yet, it becomes apparent that this is but one side of the story.</p>
+                            <p>For on the neighbouring planet Burian, is the seeds of a new civilization that broke off from L’karim, 13 T'pyberium Cycles before. They are a people forged and hardened by the brutal planet they now inhabit, choosing to abandon their afflicted bodies for mechanical ones. Machined bodies they call Mebolavs, in a process called Conversion. This world and its people is explored through the eyes of Semile’ny Kiliptrion, a non-converted daughter of Fra‘Gram Kiliptrion III, Arbiter of Ultraport 1 and Aspera City.</p>
+                            <p>As these two worlds collide during the negotiations for the T'pyberium Accords, the protagonists find each other as pawns in a chess match dictated before the rise of their own civilizations. For within the Chronomantic Scriptures of L’karim, a Mathematical divination of a possible future was revealed from the very foundations of this world. A possible threat to the cosmic order of the Legionnaires, an ancient order that has worked to develop this and many other civilizations across the Galaxy. A threat made true when the Child of Promise seizes their destiny. One they call <strong class="text-sunset-gold font-display">Prima Nocturae</strong>.</p>
+                        </div>
+
+                        <!-- Status Badge -->
+                        <div class="pt-4 border-t border-slate-800">
+                            <div class="inline-flex items-center space-x-3 px-5 py-3 rounded-xl bg-cosmic-800/80 border border-sunset-coral/30 text-sunset-coral font-display font-bold text-xs uppercase tracking-wider">
+                                <i class="fa-solid fa-clock-rotate-left"></i>
+                                <span>Coming Soon • Chapter Previews on Substack</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOOK 3 CONTENT (Hidden by default) -->
+                <div id="bookContent3" class="book-pane hidden grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                    <!-- Cover Display Column -->
+                    <!-- IMAGE LOCATION: Replace with book3.jpg -->
+                    <div class="lg:col-span-5 flex justify-center">
+                        <div class="w-full max-w-sm aspect-[2/3] rounded-2xl overflow-hidden shadow-2xl border border-purple-500/30 glow-gold relative group">
+                            <img id="book3CoverImg" src="book3.jpg" data-expected-file="book3.jpg" alt="Astral Divine Book Cover" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="loadSvgFallback(this, 'Astral Divine', 'Book III')">
+                            <div class="absolute inset-0 bg-gradient-to-t from-cosmic-950/80 via-transparent to-transparent opacity-60"></div>
+                            <span class="absolute top-4 left-4 px-3 py-1 rounded-full text-xs font-mono bg-purple-500 text-white font-bold shadow-md">In Conception</span>
+                        </div>
+                    </div>
+
+                    <!-- Book Info Column -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <div class="flex flex-wrap items-center gap-4 text-xs font-mono text-slate-400">
+                            <span><i class="fa-solid fa-file-lines text-purple-400 mr-1.5"></i> Pages TBD</span>
+                            <span>•</span>
+                            <span class="text-purple-400 font-bold"><i class="fa-solid fa-compass-drafting mr-1"></i> Coming After Astral Knight</span>
+                        </div>
+
+                        <h3 class="font-display text-3xl sm:text-4xl font-black text-white">Astral Divine</h3>
+
+                        <!-- Synopsis Paragraphs -->
+                        <div class="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+                            <p class="text-xl italic text-sunset-gold font-serif border-l-2 border-sunset-gold pl-4 py-1">"Seek the Promised land, but beware of its Temptations."</p>
+                            <p>The source of desire is the spirit, the wellspring of everything.</p>
+                            <p>Currently in the conceptual outline and structural drafting phase, this final volume will push the boundaries of 'self' with a deeper understanding of what comes next after 'The End' in this universe.</p>
+                        </div>
+
+                        <!-- Status Badge -->
+                        <div class="pt-4 border-t border-slate-800">
+                            <div class="inline-flex items-center space-x-3 px-5 py-3 rounded-xl bg-cosmic-800/80 border border-purple-500/30 text-purple-300 font-display font-bold text-xs uppercase tracking-wider">
+                                <i class="fa-solid fa-lightbulb text-sunset-gold"></i>
+                                <span>In Conception • Outline & Worldbuilding Phase</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </section>
 
         <!-- WORLD ENCYCLOPEDIA SECTION -->
-        <section id="encyclopedia" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-10">
-                <span class="text-xs font-bold text-sunset-gold tracking-widest uppercase">Lore & Archive</span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">World Encyclopedia</h2>
-                <p class="text-slate-300 text-sm mt-2">Explore the factions, locations, and technology of the Aethelgard system.</p>
-            </div>
+        <section id="encyclopedia" class="py-8">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="text-xs font-mono uppercase tracking-widest text-sunset-gold">Cosmic Archives</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-black text-white">World Encyclopedia</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Explore the factions, locations, and technologies that shape the Astral Universe.
+                </p>
 
-            <!-- Encyclopedia Category Filter & Grid -->
-            <div class="space-y-6">
-                <div class="flex justify-center gap-2 overflow-x-auto pb-2">
-                    <button onclick="filterEncyclopedia('all')" class="enc-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-sunset-500 text-white">All Entries</button>
-                    <button onclick="filterEncyclopedia('factions')" class="enc-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-slate-300 hover:text-white">Factions</button>
-                    <button onclick="filterEncyclopedia('locations')" class="enc-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-slate-300 hover:text-white">Locations</button>
-                    <button onclick="filterEncyclopedia('tech')" class="enc-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-slate-300 hover:text-white">Technology</button>
-                </div>
-
-                <div id="encyclopediaGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- Dynamic Items loaded via JavaScript -->
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap justify-center gap-2 pt-4">
+                    <button onclick="filterEncyclopedia('all')" class="ency-filter-btn px-4 py-2 rounded-lg text-xs font-display font-bold uppercase tracking-wider bg-sunset-gold text-cosmic-950 transition-all" data-filter="all">All</button>
+                    <button onclick="filterEncyclopedia('abyss')" class="ency-filter-btn px-4 py-2 rounded-lg text-xs font-display font-bold uppercase tracking-wider bg-cosmic-800 text-slate-300 hover:text-white transition-all" data-filter="abyss">Astral Abyss</button>
+                    <button onclick="filterEncyclopedia('knight')" class="ency-filter-btn px-4 py-2 rounded-lg text-xs font-display font-bold uppercase tracking-wider bg-cosmic-800 text-slate-300 hover:text-white transition-all" data-filter="knight">Astral Knight</button>
+                    <button onclick="filterEncyclopedia('divine')" class="ency-filter-btn px-4 py-2 rounded-lg text-xs font-display font-bold uppercase tracking-wider bg-cosmic-800 text-slate-300 hover:text-white transition-all" data-filter="divine">Astral Divine</button>
                 </div>
             </div>
-        </section>
 
-        <!-- SHORT STORIES MODAL READER SECTION -->
-        <section id="short-stories" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-10">
-                <span class="text-xs font-bold text-sunset-coral tracking-widest uppercase">Free Canon Lore</span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Free Short Stories</h2>
-                <p class="text-slate-300 text-sm mt-2">Immerse yourself in standalone tales and previews from upcoming books.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <!-- Story Card 1 -->
-                <div class="glass-panel glass-panel-hover rounded-2xl p-6 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-semibold text-sunset-gold px-2.5 py-1 rounded-md bg-sunset-500/10 border border-sunset-500/20">10 Min Read</span>
-                            <span class="text-xs text-slate-400">Prequel Tale</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">Whispers of Solstice Prime</h3>
-                        <p class="text-sm text-slate-300 leading-relaxed">Discover the events leading up to the great stellar alignment through the log entries of an isolated atmospheric observatory worker.</p>
-                    </div>
-                    <button onclick="openStoryModal(0)" class="mt-6 w-full py-2.5 rounded-xl border border-sunset-500/40 text-sunset-300 hover:bg-sunset-500 hover:text-white font-semibold text-sm transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-book-open"></i> Read Story Online
-                    </button>
-                </div>
-
-                <!-- Story Card 2 -->
-                <div class="glass-panel glass-panel-hover rounded-2xl p-6 flex flex-col justify-between">
-                    <div class="space-y-3">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-semibold text-sunset-coral px-2.5 py-1 rounded-md bg-sunset-coral/10 border border-sunset-coral/20">15 Min Read</span>
-                            <span class="text-xs text-slate-400">Book II Teaser</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-white">The Amber Wayfarer</h3>
-                        <p class="text-sm text-slate-300 leading-relaxed">A rogue freighter pilot takes a risk transporting forbidden golden prism cores past the watchful eyes of the Solar Consortium.</p>
-                    </div>
-                    <button onclick="openStoryModal(1)" class="mt-6 w-full py-2.5 rounded-xl border border-sunset-500/40 text-sunset-300 hover:bg-sunset-500 hover:text-white font-semibold text-sm transition flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-book-open"></i> Read Excerpt Online
-                    </button>
-                </div>
-            </div>
-        </section>
-
-        <!-- SEARCHABLE GLOSSARY SECTION -->
-        <section id="glossary" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass-panel rounded-3xl p-6 sm:p-10">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-8">
+            <!-- Encyclopedia Grid -->
+            <div id="encyclopediaGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Item 1: Faction -->
+                <div class="ency-card glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-4 group hover:border-sunset-gold/50 transition-all" data-category="abyss">
                     <div>
-                        <span class="text-xs font-bold text-sunset-300 tracking-widest uppercase">Quick Reference</span>
-                        <h2 class="text-2xl sm:text-3xl font-bold text-white">System Glossary</h2>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-sunset-gold/10 text-sunset-gold border border-sunset-gold/30">Faction</span>
+                            <span class="text-xs font-mono text-slate-500">Astral Abyss</span>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-white group-hover:text-sunset-gold transition-colors">The Consortium of Planets</h3>
+                        <p class="text-sm text-slate-300 mt-2">A massive, cross-galactic order comprised of civilizations that have achieved a "Planetary level" classification, acting as a unifying body for functional societies across the stars.</p>
                     </div>
-                    <!-- Search Input -->
-                    <div class="relative w-full md:w-72">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
-                        <input type="text" id="glossarySearch" onkeyup="searchGlossary()" placeholder="Search terms, terminology..." class="w-full pl-10 pr-4 py-2 rounded-xl bg-white/5 border border-white/10 text-slate-100 placeholder-slate-400 text-sm focus:outline-none focus:border-sunset-500 transition">
+                    <div class="pt-4 border-t border-slate-800 flex justify-between items-center text-xs text-slate-400">
+                        <span>Tag: Governance</span>
+                        <span class="text-sunset-gold font-semibold">Active Lore</span>
                     </div>
                 </div>
 
-                <div id="glossaryList" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <!-- Dynamic Glossary Term Cards -->
+                <!-- Item 2: Technology -->
+                <div class="ency-card glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-4 group hover:border-sunset-gold/50 transition-all" data-category="abyss">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-sunset-coral/10 text-sunset-coral border border-sunset-coral/30">Technology</span>
+                            <span class="text-xs font-mono text-slate-500">Astral Abyss</span>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-white group-hover:text-sunset-gold transition-colors">Genesis (Picto-Genesis)</h3>
+                        <p class="text-sm text-slate-300 mt-2">A rare and ancient form of living metal resource originally discovered on Burian. Possesses inherent reactive properties and techno-organic amino acid synergies.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex justify-between items-center text-xs text-slate-400">
+                        <span>Tag: Material Science</span>
+                        <span class="text-sunset-coral font-semibold">Active Lore</span>
+                    </div>
+                </div>
+
+                <!-- Item 3: Location -->
+                <div class="ency-card glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-4 group hover:border-sunset-gold/50 transition-all" data-category="abyss">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-sunset-cyan/10 text-sunset-cyan border border-sunset-cyan/30">Location</span>
+                            <span class="text-xs font-mono text-slate-500">Astral Abyss</span>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-white group-hover:text-sunset-gold transition-colors">Keiber 17 Outpost</h3>
+                        <p class="text-sm text-slate-300 mt-2">A massive planetary outpost and administrative hub engineered around the compressed core of a captured gas giant at the volatile critical edge of the Xzeverim Cluster.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex justify-between items-center text-xs text-slate-400">
+                        <span>Tag: Station Hub</span>
+                        <span class="text-sunset-cyan font-semibold">Active Lore</span>
+                    </div>
+                </div>
+
+                <!-- Item 4: Location (Astral Knight) -->
+                <div class="ency-card glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-4 group hover:border-sunset-gold/50 transition-all" data-category="knight">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-sunset-cyan/10 text-sunset-cyan border border-sunset-cyan/30">Location</span>
+                            <span class="text-xs font-mono text-slate-500">Astral Knight</span>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-white group-hover:text-sunset-gold transition-colors">Planet L'karim & Burian</h3>
+                        <p class="text-sm text-slate-300 mt-2">Neighbour planets within the T'pyberium Solar system, orbiting the supermassive giant blue star in the distant Pylis Galaxy. The worlds upon which Book II unfolds.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex justify-between items-center text-xs text-slate-400">
+                        <span>Tag: Space Knights</span>
+                        <span class="text-sunset-gold font-semibold">In Writing</span>
+                    </div>
+                </div>
+
+                <!-- Item 5: Faction (Astral Knight) -->
+                <div class="ency-card glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-4 group hover:border-sunset-gold/50 transition-all" data-category="knight">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-sunset-gold/10 text-sunset-gold border border-sunset-gold/30">Faction</span>
+                            <span class="text-xs font-mono text-slate-500">Astral Knight</span>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-white group-hover:text-sunset-gold transition-colors">House Skye & Kiliptrion Family</h3>
+                        <p class="text-sm text-slate-300 mt-2">The affiliations of Auron Skye and Semile'ny Kiliptrion, the two main perspectives from which Book II: Astral Knight is told.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex justify-between items-center text-xs text-slate-400">
+                        <span>Tag: Noble Houses</span>
+                        <span class="text-sunset-gold font-semibold">In Writing</span>
+                    </div>
+                </div>
+
+                <!-- Item 6: Cosmic Order (Astral Divine) -->
+                <div class="ency-card glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-4 group hover:border-sunset-gold/50 transition-all" data-category="divine">
+                    <div>
+                        <div class="flex items-center justify-between mb-3">
+                            <span class="px-2.5 py-1 rounded text-xs font-mono bg-purple-500/10 text-purple-400 border border-purple-500/30">Cosmic Order</span>
+                            <span class="text-xs font-mono text-slate-500">Astral Divine</span>
+                        </div>
+                        <h3 class="font-display font-bold text-lg text-white group-hover:text-sunset-gold transition-colors">Seeker - Hak'tuska</h3>
+                        <p class="text-sm text-slate-300 mt-2">Those who seek the beyond, transcending mortal physical limitations to divining universal laws.</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-800 flex justify-between items-center text-xs text-slate-400">
+                        <span>Tag: Order</span>
+                        <span class="text-purple-400 font-semibold">Conception</span>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- STORY CONCEPTS VISUAL GRID SECTION -->
-        <section id="concepts" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-2xl mx-auto mb-10">
-                <span class="text-xs font-bold text-sunset-gold tracking-widest uppercase">Visual Development</span>
-                <h2 class="text-3xl sm:text-4xl font-bold text-white mt-1">Story Concepts & Art</h2>
-                <p class="text-slate-300 text-sm mt-2">Conceptual artwork depicting the worlds and architecture of the series.</p>
+        <!-- UNIVERSE STORIES SECTION -->
+        <section id="universe-stories" class="py-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+                <span class="text-xs font-mono uppercase tracking-widest text-sunset-coral">Archives & Dispatches</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-black text-white">Universe Stories</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Read confidential contingency directives, case files, and short stories from the Astral Storylines.
+                </p>
+
+                <!-- Story Book Tabs -->
+                <div class="flex flex-wrap justify-center gap-3 pt-4">
+                    <button onclick="switchStoryBook('abyss')" id="storyTabAbyss" class="px-5 py-2 rounded-full text-xs font-display font-bold uppercase tracking-wider bg-sunset-gold text-cosmic-950 transition-all glow-gold">Astral Abyss (5 Directives)</button>
+                    <button onclick="switchStoryBook('knight')" id="storyTabKnight" class="px-5 py-2 rounded-full text-xs font-display font-bold uppercase tracking-wider bg-cosmic-800 text-slate-300 hover:text-white transition-all">Astral Knight (In Writing)</button>
+                    <button onclick="switchStoryBook('divine')" id="storyTabDivine" class="px-5 py-2 rounded-full text-xs font-display font-bold uppercase tracking-wider bg-cosmic-800 text-slate-300 hover:text-white transition-all">Astral Divine (Coming Soon)</button>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Concept Card 1 -->
-                <div class="glass-panel glass-panel-hover rounded-2xl overflow-hidden group">
-                    <div class="aspect-video bg-sunset-purple/50 relative overflow-hidden">
-                        <img src="concept1.jpg" alt="Solar Array" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" onerror="loadSvgFallback(this, 'Solstice Solar Rings', 'Concept Art')">
+            <!-- Astral Abyss Stories Pane -->
+            <div id="storyPaneAbyss" class="story-pane space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Story Card 1 -->
+                    <div class="glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-4 hover:border-sunset-gold/50 transition-all">
+                        <div>
+                            <span class="text-xs font-mono text-sunset-gold uppercase">Directive 01</span>
+                            <h3 class="font-display font-bold text-lg text-white mt-1">Interagency Contingency Directive - The Mandala Protocol</h3>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">CLEARANCE: LEVEL 9 (STATE-HEAD EXCLUSIVE - U.P.A. PRESIDENTIAL BYPASS ACTIVE) * AGENCY: JOINT TASK FORCE (CIA / DTC / FBI / MP) * Classification: ECLIPSE-9/ COMPARTMENTALIZED ACCESS ONLY. * Origination Date: 17 June 1964, Washington DC.</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 flex justify-between items-center">
+                            <span class="text-xs font-mono text-slate-500">CLASSIFIED PDF</span>
+                            <!-- REPLACE LINK BELOW WITH YOUR GOOGLE DRIVE DOCUMENT URL -->
+                            <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg bg-sunset-gold/10 text-sunset-gold hover:bg-sunset-gold hover:text-cosmic-950 text-xs font-display font-bold uppercase tracking-wider transition-colors inline-flex items-center">
+                                <i class="fa-solid fa-file-pdf mr-1.5"></i> Access PDF
+                            </a>
+                        </div>
                     </div>
-                    <div class="p-4">
-                        <h4 class="font-bold text-white text-base">The Golden Solstice Array</h4>
-                        <p class="text-xs text-slate-300 mt-1">Orbital energy collection rings orbiting Solstice Prime.</p>
+
+                    <!-- Story Card 2 -->
+                    <div class="glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-4 hover:border-sunset-gold/50 transition-all">
+                        <div>
+                            <span class="text-xs font-mono text-sunset-gold uppercase">Case File 2237-6785D</span>
+                            <h3 class="font-display font-bold text-lg text-white mt-1">Operation Dry Fall</h3>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">SUBJECT: INCIDENT REPORT - INFECTION OF OPERATIVE TYRONE JAMES. * MISSION AAR (AFTER ACTION REPORT) - FIELD OPERATOR TYRONE JAMES. * CLEARANCE: LEVEL 8 REQUIRED. * DATE OF OPERATION: [REDACTED] JULY 2012.</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 flex justify-between items-center">
+                            <span class="text-xs font-mono text-slate-500">CLASSIFIED PDF</span>
+                            <!-- REPLACE LINK BELOW WITH YOUR GOOGLE DRIVE DOCUMENT URL -->
+                            <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg bg-sunset-gold/10 text-sunset-gold hover:bg-sunset-gold hover:text-cosmic-950 text-xs font-display font-bold uppercase tracking-wider transition-colors inline-flex items-center">
+                                <i class="fa-solid fa-file-pdf mr-1.5"></i> Access PDF
+                            </a>
+                        </div>
                     </div>
+
+                    <!-- Story Card 3 -->
+                    <div class="glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-4 hover:border-sunset-gold/50 transition-all">
+                        <div>
+                            <span class="text-xs font-mono text-sunset-gold uppercase">Case File 2278-12A</span>
+                            <h3 class="font-display font-bold text-lg text-white mt-1">Thereanthropic Second Variant</h3>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">CLEARANCE: LEVEL 8 REQUIRED. * SUBJECT: POST-RECOVERY INTERROGATION OF CIVILIAN SUSPECT * TRANSCRIPT: INTERROGATION ROOM 4-B. * LOCATION: UPA PROVINCIAL LIABILITY DETENTION CENTER – CUBAN PROVINCE. * DATE: 5TH APRIL, 2021.</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 flex justify-between items-center">
+                            <span class="text-xs font-mono text-slate-500">CLASSIFIED PDF</span>
+                            <!-- REPLACE LINK BELOW WITH YOUR GOOGLE DRIVE DOCUMENT URL -->
+                            <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg bg-sunset-gold/10 text-sunset-gold hover:bg-sunset-gold hover:text-cosmic-950 text-xs font-display font-bold uppercase tracking-wider transition-colors inline-flex items-center">
+                                <i class="fa-solid fa-file-pdf mr-1.5"></i> Access PDF
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Story Card 4 -->
+                    <div class="glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-4 hover:border-sunset-gold/50 transition-all">
+                        <div>
+                            <span class="text-xs font-mono text-sunset-gold uppercase">Case File 1063-8A</span>
+                            <h3 class="font-display font-bold text-lg text-white mt-1">Sea Project Endeavour</h3>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">CLEARANCE: LEVEL 8 REQUIRED. * SUBJECT: RESEARCH MISSION AT DIAMANTINA TRENCH * TRANSCRIPT: DESCRIPTION OF TAPE [EXCERPT]. * LOCATION: UPA PARAGON – NEW PANAMA. * DATE: July 7th, 2016.</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 flex justify-between items-center">
+                            <span class="text-xs font-mono text-slate-500">CLASSIFIED PDF</span>
+                            <!-- REPLACE LINK BELOW WITH YOUR GOOGLE DRIVE DOCUMENT URL -->
+                            <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg bg-sunset-gold/10 text-sunset-gold hover:bg-sunset-gold hover:text-cosmic-950 text-xs font-display font-bold uppercase tracking-wider transition-colors inline-flex items-center">
+                                <i class="fa-solid fa-file-pdf mr-1.5"></i> Access PDF
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Story Card 5 -->
+                    <div class="glass-panel p-6 rounded-2xl border border-slate-800 flex flex-col justify-between space-y-4 hover:border-sunset-gold/50 transition-all">
+                        <div>
+                            <span class="text-xs font-mono text-sunset-coral uppercase">Short Story (In Writing)</span>
+                            <h3 class="font-display font-bold text-lg text-white mt-1">The Ganymede Incident</h3>
+                            <p class="text-xs text-slate-300 mt-2 leading-relaxed">A recount of events that occurred during the Ganymede and Odin Space Tragedy aboard the Ganymede Station, involving Director Alfred Pittuch of AOSA AMES and Colonel Thomas Cooper of the UPA Space Force.</p>
+                        </div>
+                        <div class="pt-4 border-t border-slate-800 flex justify-between items-center">
+                            <span class="text-xs font-mono text-slate-500">SHORT STORY PDF</span>
+                            <!-- REPLACE LINK BELOW WITH YOUR GOOGLE DRIVE DOCUMENT URL -->
+                            <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="px-3.5 py-1.5 rounded-lg bg-sunset-coral/10 text-sunset-coral hover:bg-sunset-coral hover:text-white text-xs font-display font-bold uppercase tracking-wider transition-colors inline-flex items-center">
+                                <i class="fa-solid fa-file-pdf mr-1.5"></i> Access PDF
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Astral Knight Stories Pane (Hidden) -->
+            <div id="storyPaneKnight" class="story-pane hidden text-center py-16 glass-panel rounded-3xl border border-slate-800 space-y-3">
+                <i class="fa-solid fa-feather-pointed text-4xl text-sunset-gold"></i>
+                <h3 class="font-display font-bold text-xl text-white">Astral Knight Universe Stories</h3>
+                <p class="text-slate-400 text-sm max-w-md mx-auto">Currently being authored alongside Book 2. Chapter previews and lore dispatches are being regularly released on Substack.</p>
+            </div>
+
+            <!-- Astral Divine Stories Pane (Hidden) -->
+            <div id="storyPaneDivine" class="story-pane hidden text-center py-16 glass-panel rounded-3xl border border-slate-800 space-y-3">
+                <i class="fa-solid fa-galaxy text-4xl text-purple-400"></i>
+                <h3 class="font-display font-bold text-xl text-white">Astral Divine Universe Stories</h3>
+                <p class="text-slate-400 text-sm max-w-md mx-auto">In conception phase. Stay tuned for early conceptual notes and story fragments.</p>
+            </div>
+        </section>
+
+        <!-- GLOSSARY SECTION -->
+        <section id="glossary" class="py-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-8 space-y-3">
+                <span class="text-xs font-mono uppercase tracking-widest text-sunset-gold">Terminology & Lore</span>
+                <h2 class="font-display text-3xl sm:text-5xl font-black text-white">Glossary</h2>
+                <p class="text-slate-400 text-sm sm:text-base">
+                    Comprehensive definitions of organizations, technologies, and terms across the Astral Universe.
+                </p>
+
+                <!-- Search Box -->
+                <div class="max-w-md mx-auto mt-4 relative">
+                    <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-sm"></i>
+                    <input type="text" id="glossarySearchInput" oninput="filterGlossarySearch()" placeholder="Search terms, tags, or keywords..." class="w-full bg-cosmic-950/80 border border-slate-800 focus:border-sunset-gold focus:outline-none text-xs sm:text-sm text-slate-200 pl-11 pr-4 py-3 rounded-full transition-colors">
                 </div>
 
-                <!-- Concept Card 2 -->
-                <div class="glass-panel glass-panel-hover rounded-2xl overflow-hidden group">
-                    <div class="aspect-video bg-sunset-purple/50 relative overflow-hidden">
-                        <img src="concept2.jpg" alt="Citadel Outpost" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" onerror="loadSvgFallback(this, 'Twilight Spire Citadel', 'Concept Art')">
-                    </div>
-                    <div class="p-4">
-                        <h4 class="font-bold text-white text-base">Twilight Spire Citadel</h4>
-                        <p class="text-xs text-slate-300 mt-1">High mountain sanctuary holding ancient golden archives.</p>
-                    </div>
+                <!-- Clickable Top Identifiers / Book Categories -->
+                <div class="flex flex-wrap justify-center gap-3 pt-4">
+                    <button onclick="switchGlossary('abyss')" id="glossaryBtnAbyss" class="px-5 py-2 rounded-full text-xs font-display font-bold uppercase tracking-wider bg-sunset-gold text-cosmic-950 transition-all glow-gold">Astral Abyss Glossary (10)</button>
+                    <button onclick="switchGlossary('knight')" id="glossaryBtnKnight" class="px-5 py-2 rounded-full text-xs font-display font-bold uppercase tracking-wider bg-cosmic-800 text-slate-300 hover:text-white transition-all">Astral Knight (In Writing)</button>
+                    <button onclick="switchGlossary('divine')" id="glossaryBtnDivine" class="px-5 py-2 rounded-full text-xs font-display font-bold uppercase tracking-wider bg-cosmic-800 text-slate-300 hover:text-white transition-all">Astral Divine (In Conception)</button>
                 </div>
+            </div>
 
-                <!-- Concept Card 3 -->
-                <div class="glass-panel glass-panel-hover rounded-2xl overflow-hidden group">
-                    <div class="aspect-video bg-sunset-purple/50 relative overflow-hidden">
-                        <img src="concept3.jpg" alt="Aethelgard Vessel" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" onerror="loadSvgFallback(this, 'Solaris Class Vessel', 'Concept Art')">
+            <!-- Astral Abyss Glossary Entries -->
+            <div id="glossaryContentAbyss" class="glossary-content space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="glossaryAbyssGrid">
+                    
+                    <!-- Item 1 -->
+                    <div class="glossary-card glass-panel p-6 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-display font-bold text-lg text-sunset-gold glossary-title">The Consortium of Planets</h3>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-cosmic-800 text-slate-400 uppercase glossary-tag">Faction</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed glossary-body">A massive, cross-galactic order comprised of civilizations that have achieved a “Planetary level” classification. The Consortium acts as a unifying body for functional societies across the stars, aiming to consolidate all intelligent life into a single, cohesive network. The foundation of this order is attributed to the Envoys—ancient Pathfinders in the service of the Legion who predate most known biological life. Under their guidance, the Consortium aggressively expands its galactic reach and facilitates trans-galactic travel through the distribution of highly advanced technology. While it presents as a beacon of progress and unity, its underlying connection to the Legion and the ancient Pathfinders suggests a more calculated purpose behind the consolidation of intelligent species.</p>
                     </div>
-                    <div class="p-4">
-                        <h4 class="font-bold text-white text-base">Solaris Class Scout Ship</h4>
-                        <p class="text-xs text-slate-300 mt-1">Lightweight exploration vessel with warm energy shielding.</p>
+
+                    <!-- Item 2 -->
+                    <div class="glossary-card glass-panel p-6 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-display font-bold text-lg text-sunset-gold glossary-title">Genesis</h3>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-cosmic-800 text-slate-400 uppercase glossary-tag">Technology</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed glossary-body">A rare and ancient form of living metal resource originally discovered on the planet Burian, according to the historical records of TRISTARAM. Unlike static ores, Genesis possesses inherent reactive properties that allow for structural malleability. The material's potential was significantly expanded when a member of the Legion harnessed the finite supply, enhancing both its raw energy output and its reconstructive capabilities. The evolution of the substance reached a breakthrough when a Pathfinder successfully integrated the metal with biological matter through complex amino-acid synergies, creating a true techno-organic hybrid. As the technology matured, its later iterations achieved significantly higher frequencies of vibratory energy capacitance. These advanced, high-resonance forms are classified as Picto-Geneses, representing the pinnacle of the material’s ability to store and channel immense energetic loads.</p>
                     </div>
+
+                    <!-- Item 3 -->
+                    <div class="glossary-card glass-panel p-6 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-display font-bold text-lg text-sunset-gold glossary-title">Tristaram</h3>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-cosmic-800 text-slate-400 uppercase glossary-tag">Entity</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed glossary-body">A single-being universal powerhouse and a high-ranking member of Legion. Tristaram is defined by an unparalleled mastery of life sciences, genetics, and the complexities of the vast life era. His influence extends across galactical regions through the deployment of hundreds of Pathfinders, who serve as the instruments of his directives and ensure the continuation of his research. Despite his immense reach, Tristaram remains an enigma; no living being has ever gazed upon his true form. He operates through a layer of extreme isolation, utilizing his Pathfinders as the front-line enforcement of his will. These subordinates are notorious throughout the galaxy as being both exceptionally brutal and entirely expendable, reflecting Tristaram's cold, clinical focus on his work above the value of individual lives.</p>
+                    </div>
+
+                    <!-- Item 4 -->
+                    <div class="glossary-card glass-panel p-6 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-display font-bold text-lg text-sunset-gold glossary-title">Keiber 17</h3>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-cosmic-800 text-slate-400 uppercase glossary-tag">Location</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed glossary-body">A massive planetary outpost and administrative hub for the Consortium of Planets. Originally engineered by the Nimulic Explorers, the station is an artificial shell constructed entirely around the compressed core of a captured gas giant. Strategically positioned at the volatile ‘critical edge’ of the Xzeverim Cluster, it serves as a melting pot for numerous galactic powers. Despite the diverse and often conflicting interests of its inhabitants, Keiber 17’s absolute sovereignty remains unchallenged, maintained by the sheer power and tactical superiority of its owners. Pathfinders.</p>
+                    </div>
+
+                    <!-- Item 5 -->
+                    <div class="glossary-card glass-panel p-6 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-display font-bold text-lg text-sunset-gold glossary-title">Pathfinder</h3>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-cosmic-800 text-slate-400 uppercase glossary-tag">Operative</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed glossary-body">An elite operative in the official service of the Consortium of Planets, a trans-galactical organization dedicated to the preservation of universal life. The title is granted to any sentient being deemed worthy of the Creed—an ancient, immutable soul contract that remains binding until the moment of death. While nominally serving the Consortium’s mission, Pathfinders operate with a degree of autonomy that eludes total central control, as many are understood to be ultimately beholden to a primordial, older force that predates the Consortium’s own mandate. Legion.</p>
+                    </div>
+
+                    <!-- Item 6 -->
+                    <div class="glossary-card glass-panel p-6 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-display font-bold text-lg text-sunset-gold glossary-title">The Mandala Protocol</h3>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-cosmic-800 text-slate-400 uppercase glossary-tag">Protocol</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed glossary-body">An intragovernmental UPA secret protocol whose primary directive is the absolute safeguarding of the global paradigm against unexplained events, anomalous biologicals, extra-terrestrial artifacts, or incidents capable of triggering global catastrophe.</p>
+                    </div>
+
+                    <!-- Item 7 -->
+                    <div class="glossary-card glass-panel p-6 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-display font-bold text-lg text-sunset-gold glossary-title">Well Drive</h3>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-cosmic-800 text-slate-400 uppercase glossary-tag">Technology</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed glossary-body">A spatial-temporal propulsion system that functions by inducing a gravitational singularity within a localized warp bubble. The drive operates when a toroidal mass spins sinusoidally around the singularity’s event horizon, creating a profound time-dilation effect where internal time slows relative to the surrounding universe. While the ship maintains a constant sub-light speed, this temporal slowing allows it to traverse vast interstellar distances in negligible external time. Structural integrity and internal gravity are maintained via gravitational shielding, which isolates the crew from the singularity’s immense tidal forces. Visually, the manoeuvre is characterized as ‘falling through space,’ where the vessel appears to drop downward through a gravitational map and emerge at a distant coordinate, effectively 'falling' across the stars.</p>
+                    </div>
+
+                    <!-- Item 8 -->
+                    <div class="glossary-card glass-panel p-6 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-display font-bold text-lg text-sunset-gold glossary-title">Legion</h3>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-cosmic-800 text-slate-400 uppercase glossary-tag">Order</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed glossary-body">An obscure universal order that holds absolute leverage over the primary galactic sectors of the known universe. Unlike the overt administrative sectors of the Consortium of Planets, Legion operates through a doctrine of absolute control via absolute absence. They possess influence that transcends borders, civilizations, planetary alliances and even the Ages.</p>
+                    </div>
+
+                    <!-- Item 9 -->
+                    <div class="glossary-card glass-panel p-6 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-display font-bold text-lg text-sunset-gold glossary-title">PCD (Personal Confidential Device)</h3>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-cosmic-800 text-slate-400 uppercase glossary-tag">Equipment</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed glossary-body">A digital, SMI (standard-military-issue) communications device locked with personal biometrics of the officer operating it. It serves as an instrument to relay orders and reports amongst operatives from senior command. These are linked in operation to certain missions, vessels of deployment or bases, ensuring data cannot leave its designated target officer or assigned proximity.</p>
+                    </div>
+
+                    <!-- Item 10 -->
+                    <div class="glossary-card glass-panel p-6 rounded-2xl border border-slate-800 space-y-3">
+                        <div class="flex justify-between items-start">
+                            <h3 class="font-display font-bold text-lg text-sunset-gold glossary-title">UPA (United Provinces of the Americas)</h3>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-mono bg-cosmic-800 text-slate-400 uppercase glossary-tag">Geopolitical</span>
+                        </div>
+                        <p class="text-xs sm:text-sm text-slate-300 leading-relaxed glossary-body">A massive geopolitical collective composed of sovereign nations reorganized into administrative provinces. The core of the UPA is anchored by the North American triad—the USA, Canada, and Mexico. Through extensive expansion and colonial consolidation, the UPA's reach now encompasses all former states in South America and the entirety of Australia, designating them as provincial territories. Under this unified banner, the UPA operates as a singular, dominant force in terrestrial and planetary affairs, oacting as one of the four primary stakeholder of the World Council, a member of the Consortium of Planets.</p>
+                    </div>
+
                 </div>
+            </div>
+
+            <!-- Astral Knight Glossary (Zero entries placeholder) -->
+            <div id="glossaryContentKnight" class="glossary-content hidden text-center py-16 glass-panel rounded-3xl border border-slate-800 space-y-3">
+                <i class="fa-solid fa-book-bookmark text-4xl text-slate-600"></i>
+                <h3 class="font-display font-bold text-xl text-white">Astral Knight Glossary</h3>
+                <p class="text-sunset-gold text-sm">Coming soon in writing. Glossary entries will be unlocked as Book 2 progresses.</p>
+            </div>
+
+            <!-- Astral Divine Glossary (Zero entries placeholder) -->
+            <div id="glossaryContentDivine" class="glossary-content hidden text-center py-16 glass-panel rounded-3xl border border-slate-800 space-y-3">
+                <i class="fa-solid fa-scroll text-4xl text-slate-600"></i>
+                <h3 class="font-display font-bold text-xl text-white">Astral Divine Glossary</h3>
+                <p class="text-purple-400 text-sm">Coming soon in conception phase.</p>
             </div>
         </section>
 
     </main>
 
-    <!-- FOOTER -->
-    <footer class="border-t border-sunset-500/20 bg-sunset-purple/30 relative z-10 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-            <div>
-                <span class="text-lg font-bold text-gradient-sunset">The Solar Eclipse Saga</span>
-                <p class="text-xs text-slate-400 mt-1">© 2026 Aethelgard Chronicles. All rights reserved. Cloudflare Pages Ready.</p>
+    <!-- Footer -->
+    <footer class="glass-panel border-t border-slate-800 mt-20 py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            
+            <div class="text-center md:text-left space-y-1">
+                <p class="text-sm text-slate-300 font-medium">&copy; 2026 Nelson Mwova. All rights reserved.</p>
+                <p class="text-xs text-sunset-gold font-mono flex items-center justify-center md:justify-start">
+                    <i class="fa-solid fa-cloud-arrow-up mr-1.5"></i> Cloudflare Pages Ready • Astral Storylines Universe
+                </p>
             </div>
-            <div class="flex items-center gap-4 text-slate-300 text-lg">
-                <a href="#" class="hover:text-sunset-gold transition"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" class="hover:text-sunset-gold transition"><i class="fa-brands fa-discord"></i></a>
-                <a href="#" class="hover:text-sunset-gold transition"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#" class="hover:text-sunset-gold transition"><i class="fa-solid fa-envelope"></i></a>
+
+            <!-- Footer Social Links -->
+            <div class="flex items-center space-x-4">
+                <a href="https://www.reddit.com/user/Individual-Step-4011/" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-cosmic-800 hover:bg-orange-500 hover:text-white text-slate-300 flex items-center justify-center transition-colors" title="Reddit">
+                    <i class="fa-brands fa-reddit-alien"></i>
+                </a>
+                <a href="https://www.instagram.com/nelson_mwania?mdxt=cW1sMXRlaG15d2hs" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-cosmic-800 hover:bg-sunset-coral hover:text-white text-slate-300 flex items-center justify-center transition-colors" title="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://substack.com/@nelsonmwania?utm_source=share&utm_medium=android&r=96qjfj" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-xl bg-cosmic-800 hover:bg-sunset-gold hover:text-cosmic-950 text-slate-300 flex items-center justify-center transition-colors" title="Substack">
+                    <i class="fa-solid fa-pen-nib"></i>
+                </a>
+                <a href="mailto:astralabysske@gmail.com" class="w-10 h-10 rounded-xl bg-cosmic-800 hover:bg-sunset-cyan hover:text-cosmic-950 text-slate-300 flex items-center justify-center transition-colors" title="Email">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
             </div>
         </div>
     </footer>
 
-    <!-- READ STORY MODAL -->
-    <div id="storyModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-        <div class="glass-panel rounded-3xl max-w-2xl w-full max-h-[85vh] flex flex-col overflow-hidden border border-sunset-500/30">
-            <!-- Modal Header -->
-            <div class="p-6 border-b border-white/10 flex items-center justify-between">
-                <div>
-                    <span id="modalCategory" class="text-xs font-semibold text-sunset-gold uppercase">Canon Short Story</span>
-                    <h3 id="modalTitle" class="text-2xl font-bold text-white mt-1">Story Title</h3>
-                </div>
-                <button onclick="closeStoryModal()" class="w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 flex items-center justify-center transition">
-                    <i class="fa-solid fa-xmark text-lg"></i>
-                </button>
-            </div>
-            <!-- Modal Body Content -->
-            <div id="modalContent" class="p-6 overflow-y-auto space-y-4 text-slate-200 text-sm leading-relaxed">
-                <!-- Text inserted via Javascript -->
-            </div>
-            <!-- Modal Footer -->
-            <div class="p-4 border-t border-white/10 flex justify-end">
-                <button onclick="closeStoryModal()" class="px-5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-xs font-semibold text-white">Close Reader</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- JAVASCRIPT LOGIC & CONSTELLATION CANVAS -->
+    <!-- Interactive JavaScript -->
     <script>
-        /* Mobile Menu Toggle */
-        const mobileBtn = document.getElementById('mobileMenuBtn');
+        // HTML5 Canvas Moving Constellation Background
+        (function initConstellations() {
+            const canvas = document.getElementById('constellationCanvas');
+            const ctx = canvas.getContext('2d');
+            let particles = [];
+
+            function resizeCanvas() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            class Particle {
+                constructor() {
+                    this.reset();
+                }
+                reset() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.vx = (Math.random() - 0.5) * 0.4;
+                    this.vy = (Math.random() - 0.5) * 0.4;
+                    this.radius = Math.random() * 1.5 + 0.5;
+                    this.alpha = Math.random() * 0.5 + 0.3;
+                }
+                update() {
+                    this.x += this.vx;
+                    this.y += this.vy;
+
+                    if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
+                    if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(245, 158, 11, ${this.alpha})`;
+                    ctx.fill();
+                }
+            }
+
+            const particleCount = Math.floor((window.innerWidth * window.innerHeight) / 18000);
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].update();
+                    particles[i].draw();
+
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x;
+                        const dy = particles[i].y - particles[j].y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+
+                        if (dist < 120) {
+                            ctx.beginPath();
+                            ctx.moveTo(particles[i].x, particles[i].y);
+                            ctx.lineTo(particles[j].x, particles[j].y);
+                            const lineAlpha = (1 - dist / 120) * 0.15;
+                            ctx.strokeStyle = `rgba(245, 158, 11, ${lineAlpha})`;
+                            ctx.lineWidth = 0.6;
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
+            }
+            animate();
+        })();
+
+        // Mobile Navigation Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
-        mobileBtn.addEventListener('click', () => {
+        
+        mobileMenuBtn.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
 
-        /* Book Data Object with Status Badges */
-        const booksData = {
-            book1: {
-                title: "Dawn of Solstice",
-                subtitle: "The Eclipse Saga · Part 1",
-                badge: "AVAILABLE NOW",
-                badgeColor: "bg-emerald-500/80",
-                statusPill: `<span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5"><i class="fa-solid fa-circle text-[8px]"></i> Published</span>`,
-                pages: "482 Pages",
-                release: "Available Now",
-                rating: "4.9 / 5 Stars",
-                cover: "book1.jpg",
-                synopsis: [
-                    "When the twin suns of Aethelgard align in a rare thousand-year solstice, the ancient grid of solar conduits reactivates, revealing a forgotten stellar path through the veil of space.",
-                    "Captain Lyra Vance must navigate a delicate political climate between orbital colonies while deciphering golden transmissions that hint at a warm, habitable world beyond known star charts."
-                ],
-                isWriting: false,
-                buyHeader: "Purchase or Stream On:"
-            },
-            book2: {
-                title: "Golden Horizons",
-                subtitle: "The Eclipse Saga · Part 2",
-                badge: "CURRENTLY IN WRITING",
-                badgeColor: "bg-sunset-gold/90 text-slate-900",
-                statusPill: `<span class="px-3 py-1 rounded-full text-xs font-bold bg-sunset-gold/20 text-sunset-gold border border-sunset-gold/30 flex items-center gap-1.5"><i class="fa-solid fa-pen-nib animate-pulse text-[10px]"></i> Currently In Writing (65%)</span>`,
-                pages: "Estimated 500+ Pages",
-                release: "Writing in Progress",
-                rating: "Progress: 65%",
-                cover: "book2.jpg",
-                synopsis: [
-                    "With the solar paths revealed, rival colonies rush to secure control over the newly opened solar conduits, pushing humanity to the brink of a warm celestial struggle.",
-                    "Lyra and her crew journey into the uncharted Amber Nebula, uncovering ancient architectural relics that challenge everything known about human origins in the galaxy."
-                ],
-                isWriting: true,
-                buyHeader: "Book Progress Update:",
-                teaserText: "First draft manuscript is currently 65% complete. Subscribe or check the Short Stories section above for preliminary excerpts and character logs!"
-            },
-            book3: {
-                title: "Twilight Citadel",
-                subtitle: "The Eclipse Saga · Part 3",
-                badge: "CURRENTLY IN WRITING",
-                badgeColor: "bg-sunset-coral/90 text-white",
-                statusPill: `<span class="px-3 py-1 rounded-full text-xs font-bold bg-sunset-coral/20 text-sunset-coral border border-sunset-coral/30 flex items-center gap-1.5"><i class="fa-solid fa-feather text-[10px]"></i> Pre-Draft & Worldbuilding</span>`,
-                pages: "Estimated 550+ Pages",
-                release: "Planned Following Book II",
-                rating: "Outline Stage",
-                cover: "book3.jpg",
-                synopsis: [
-                    "In the thrilling conclusion of the trilogy, the secrets of the Twilight Citadel are unlocked, offering the choice between cosmic unity or perpetual darkness.",
-                    "Boundaries fade as Lyra stands at the heart of the solar core, ready to forge a legacy that will illuminate human civilization for millennia to come."
-                ],
-                isWriting: true,
-                buyHeader: "Trilogy Climax Status:",
-                teaserText: "Plotting and worldbuilding outline underway. The climax of the Solar Eclipse trilogy will begin full drafting following the release of Golden Horizons."
-            }
-        };
-
-        function switchBook(bookKey) {
-            const b = booksData[bookKey];
-            if(!b) return;
-
-            // Highlight Tabs
-            document.querySelectorAll('.book-tab').forEach(tab => {
-                tab.className = "book-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 text-slate-300 hover:text-white hover:bg-white/5";
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
             });
-            const activeTab = document.getElementById('tab-' + bookKey);
-            if(activeTab) {
-                activeTab.className = "book-tab px-5 py-2.5 rounded-xl text-sm font-semibold transition-all flex items-center gap-2 bg-gradient-to-r from-sunset-500 to-sunset-coral text-white shadow-lg shadow-sunset-500/30";
-            }
-
-            // Update Details
-            document.getElementById('bookTitle').innerText = b.title;
-            document.getElementById('bookSubtitle').innerText = b.subtitle;
-            document.getElementById('bookBadge').innerText = b.badge;
-            document.getElementById('bookBadge').className = `px-3 py-1 text-xs font-bold rounded-full backdrop-blur-md ${b.badgeColor}`;
-            document.getElementById('statusPill').innerHTML = b.statusPill;
-
-            document.getElementById('bookPages').innerText = b.pages;
-            document.getElementById('bookRelease').innerText = b.release;
-            document.getElementById('bookRating').innerHTML = b.rating;
-            
-            const coverImg = document.getElementById('bookCoverImg');
-            coverImg.src = b.cover;
-            coverImg.onerror = () => loadSvgFallback(coverImg, b.title, b.badge);
-
-            const synContainer = document.getElementById('bookSynopsis');
-            synContainer.innerHTML = b.synopsis.map(p => `<p>${p}</p>`).join('');
-
-            // Buy / Retailers vs Writing Teaser Box
-            const buyHeader = document.getElementById('buyHeader');
-            const container = document.getElementById('retailerContainer');
-            buyHeader.innerText = b.buyHeader;
-
-            if(b.isWriting) {
-                container.innerHTML = `
-                    <div class="w-full p-4 rounded-xl bg-white/5 border border-sunset-500/30 text-slate-200 text-xs sm:text-sm leading-relaxed flex items-start gap-3">
-                        <i class="fa-solid fa-pen-fancy text-sunset-gold text-lg mt-0.5"></i>
-                        <div>
-                            <p class="font-semibold text-sunset-gold mb-1">Author Note:</p>
-                            <p>${b.teaserText}</p>
-                        </div>
-                    </div>
-                `;
-            } else {
-                container.innerHTML = `
-                    <a href="https://amazon.com" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-sunset-500/20 border border-white/10 hover:border-sunset-500/40 text-xs sm:text-sm font-semibold flex items-center gap-2 transition">
-                        <i class="fa-brands fa-amazon text-sunset-gold"></i> Amazon Kindle
-                    </a>
-                    <a href="https://audible.com" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-sunset-500/20 border border-white/10 hover:border-sunset-500/40 text-xs sm:text-sm font-semibold flex items-center gap-2 transition">
-                        <i class="fa-solid fa-headphones text-sunset-coral"></i> Audible
-                    </a>
-                    <a href="https://barnesandnoble.com" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-sunset-500/20 border border-white/10 hover:border-sunset-500/40 text-xs sm:text-sm font-semibold flex items-center gap-2 transition">
-                        <i class="fa-solid fa-book text-sunset-300"></i> Barnes & Noble
-                    </a>
-                    <a href="https://apple.com/apple-books" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-sunset-500/20 border border-white/10 hover:border-sunset-500/40 text-xs sm:text-sm font-semibold flex items-center gap-2 transition">
-                        <i class="fa-brands fa-apple text-slate-200"></i> Apple Books
-                    </a>
-                    <a href="https://kobo.com" target="_blank" rel="noopener" class="px-4 py-2.5 rounded-xl bg-white/10 hover:bg-sunset-500/20 border border-white/10 hover:border-sunset-500/40 text-xs sm:text-sm font-semibold flex items-center gap-2 transition">
-                        <i class="fa-solid fa-tablet-screen-button text-sunset-gold"></i> Kobo
-                    </a>
-                `;
-            }
-        }
-
-        /* SVG Fallback Generator for Book Covers */
-        function loadSvgFallback(imgElem, title, badge) {
-            const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="600" viewBox="0 0 400 600">
-                <defs>
-                    <linearGradient id="sunsetGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#3b0764"/>
-                        <stop offset="50%" stop-color="#f97316"/>
-                        <stop offset="100%" stop-color="#ff6b6b"/>
-                    </linearGradient>
-                </defs>
-                <rect width="400" height="600" fill="url(#sunsetGrad)"/>
-                <circle cx="200" cy="220" r="100" fill="#fbbf24" opacity="0.3"/>
-                <circle cx="200" cy="220" r="70" fill="#fbbf24" opacity="0.5"/>
-                <text x="200" y="380" font-family="'Plus Jakarta Sans', sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">${title}</text>
-                <text x="200" y="410" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" fill="#fed7aa" text-anchor="middle">${badge}</text>
-            </svg>`;
-            imgElem.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
-        }
-
-        /* SVG Fallback Generator for Author Image */
-        function loadSvgAuthorFallback(imgElem) {
-            const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="300" viewBox="0 0 300 300">
-                <defs>
-                    <linearGradient id="authorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stop-color="#6b21a8"/>
-                        <stop offset="100%" stop-color="#f97316"/>
-                    </linearGradient>
-                </defs>
-                <rect width="300" height="300" fill="url(#authorGrad)"/>
-                <circle cx="150" cy="110" r="45" fill="#fed7aa"/>
-                <path d="M 75 250 C 75 190, 225 190, 225 250 Z" fill="#fed7aa"/>
-            </svg>`;
-            imgElem.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
-        }
-
-        /* World Encyclopedia Data */
-        const encyclopediaData = [
-            { category: 'factions', name: 'Solstice Syndicate', desc: 'A peaceful alliance of orbital researchers and navigators devoted to studying solar wave transmissions.' },
-            { category: 'locations', name: 'Aethelgard Prime', desc: 'A lush terrestrial planetary sanctuary warmed by twin gold suns, surrounded by ancient solar rings.' },
-            { category: 'tech', name: 'Prismatic Shielding', desc: 'Energy dampening barriers utilizing warm light spectrum refraction to withstand atmospheric entry.' },
-            { category: 'factions', name: 'The Amber Vanguards', desc: 'Explorers and pilots who map deep space stellar corridors ahead of trade expeditions.' },
-            { category: 'locations', name: 'Citadel of Light', desc: 'A towering architectural wonder built atop Solstice Prime’s highest equatorial peak.' },
-            { category: 'tech', name: 'Solaris Conduits', desc: 'Ancient sub-space portals that activate during celestial alignments to permit instant travel.' }
-        ];
-
-        function renderEncyclopedia(data) {
-            const grid = document.getElementById('encyclopediaGrid');
-            grid.innerHTML = data.map(item => `
-                <div class="glass-panel glass-panel-hover rounded-2xl p-5 border border-sunset-500/20">
-                    <span class="text-[10px] font-bold text-sunset-coral uppercase tracking-widest px-2 py-0.5 rounded bg-sunset-coral/10 border border-sunset-coral/20">${item.category}</span>
-                    <h4 class="text-lg font-bold text-white mt-3">${item.name}</h4>
-                    <p class="text-xs text-slate-300 mt-2 leading-relaxed">${item.desc}</p>
-                </div>
-            `).join('');
-        }
-
-        function filterEncyclopedia(cat) {
-            document.querySelectorAll('.enc-btn').forEach(btn => {
-                btn.className = "enc-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-white/5 text-slate-300 hover:text-white";
-            });
-            event.target.className = "enc-btn px-4 py-1.5 rounded-full text-xs font-semibold bg-sunset-500 text-white";
-
-            if (cat === 'all') {
-                renderEncyclopedia(encyclopediaData);
-            } else {
-                renderEncyclopedia(encyclopediaData.filter(i => i.category === cat));
-            }
-        }
-
-        /* Glossary Search & Data */
-        const glossaryTerms = [
-            { term: 'Aethelgard', def: 'The central twin-star system around which all saga events unfold.' },
-            { term: 'Amber Nebula', def: 'A radiant interstellar cloud rich in golden ionized gas and solar energy.' },
-            { term: 'Conduit Calibration', def: 'The delicate process of aligning starship drives with solar wave frequencies.' },
-            { term: 'Solstice Alignment', def: 'A rare celestial occurrence every 1,000 years unlocking ancient galaxy pathways.' }
-        ];
-
-        function renderGlossary(terms) {
-            const list = document.getElementById('glossaryList');
-            list.innerHTML = terms.map(t => `
-                <div class="p-4 rounded-xl bg-white/5 border border-white/5">
-                    <h5 class="text-sm font-bold text-sunset-gold">${t.term}</h5>
-                    <p class="text-xs text-slate-300 mt-1">${t.def}</p>
-                </div>
-            `).join('');
-        }
-
-        function searchGlossary() {
-            const query = document.getElementById('glossarySearch').value.toLowerCase();
-            const filtered = glossaryTerms.filter(t => t.term.toLowerCase().includes(query) || t.def.toLowerCase().includes(query));
-            renderGlossary(filtered);
-        }
-
-        /* Short Stories Modal Functionality */
-        const storiesData = [
-            {
-                title: "Whispers of Solstice Prime",
-                category: "Prequel Short Story",
-                content: `
-                    <p>The dawn over Solstice Prime was unlike any other in the outer cluster. Twin suns crested the horizon in perfect tandem, casting long golden light across the observatory's glass domes.</p>
-                    <p>Dr. Alan Vance adjusted the receiver array. For seventy years, the array had recorded nothing but cosmic background static. But today, as the suns aligned, the signal changed. It wasn't static—it was a harmonic chord, resounding with energy.</p>
-                    <p>"Lyra," he whispered into the communicator, "it's happening. The conduits are opening."</p>
-                `
-            },
-            {
-                title: "The Amber Wayfarer",
-                category: "Book II Teaser Excerpt",
-                content: `
-                    <p>Space in the Amber Nebula moved like liquid gold. Captain Jax navigated his freighter through the thick ionized dust, his sensors pinging softly against warm energy pockets.</p>
-                    <p>In the cargo bay lay three pristine prism cores, humming with solar power. If he could reach the Twilight Spire before the Consortium blockade closed, he could power the outer sanctuary for a decade.</p>
-                    <p>He pulled the throttle back, entering the warm solar stream.</p>
-                `
-            }
-        ];
-
-        function openStoryModal(index) {
-            const story = storiesData[index];
-            if (!story) return;
-            document.getElementById('modalTitle').innerText = story.title;
-            document.getElementById('modalCategory').innerText = story.category;
-            document.getElementById('modalContent').innerHTML = story.content;
-            document.getElementById('storyModal').classList.remove('hidden');
-        }
-
-        function closeStoryModal() {
-            document.getElementById('storyModal').classList.add('hidden');
-        }
-
-        /* Warm Golden/Sunset Constellation Background Canvas */
-        const canvas = document.getElementById('constellationCanvas');
-        const ctx = canvas.getContext('2d');
-        let particles = [];
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.vx = (Math.random() - 0.5) * 0.4;
-                this.vy = (Math.random() - 0.5) * 0.4;
-                this.radius = Math.random() * 1.8 + 0.5;
-                const colors = ['rgba(251, 191, 36, ', 'rgba(249, 115, 22, ', 'rgba(255, 107, 107, '];
-                this.colorBase = colors[Math.floor(Math.random() * colors.length)];
-                this.alpha = Math.random() * 0.6 + 0.2;
-            }
-
-            update() {
-                this.x += this.vx;
-                this.y += this.vy;
-
-                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-            }
-
-            draw() {
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-                ctx.fillStyle = this.colorBase + this.alpha + ')';
-                ctx.fill();
-            }
-        }
-
-        function initConstellation() {
-            particles = [];
-            const count = Math.floor((canvas.width * canvas.height) / 18000);
-            for (let i = 0; i < count; i++) {
-                particles.push(new Particle());
-            }
-        }
-
-        function animateConstellation() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
-
-                for (let j = i + 1; j < particles.length; j++) {
-                    const dx = particles[i].x - particles[j].x;
-                    const dy = particles[i].y - particles[j].y;
-                    const dist = Math.sqrt(dx * dx + dy * dy);
-
-                    if (dist < 120) {
-                        ctx.beginPath();
-                        ctx.moveTo(particles[i].x, particles[i].y);
-                        ctx.lineTo(particles[j].x, particles[j].y);
-                        const opacity = (1 - dist / 120) * 0.25;
-                        ctx.strokeStyle = `rgba(251, 191, 36, ${opacity})`;
-                        ctx.lineWidth = 0.6;
-                        ctx.stroke();
-                    }
-                }
-            }
-            requestAnimationFrame(animateConstellation);
-        }
-
-        /* Initial Setup */
-        window.addEventListener('resize', () => {
-            resizeCanvas();
-            initConstellation();
         });
 
-        window.onload = function() {
-            resizeCanvas();
-            initConstellation();
-            animateConstellation();
-            renderEncyclopedia(encyclopediaData);
-            renderGlossary(glossaryTerms);
-        };
+        // Book Showcase Tabs
+        function switchBook(bookNum) {
+            for (let i = 1; i <= 3; i++) {
+                const content = document.getElementById(`bookContent${i}`);
+                const tab = document.getElementById(`bookTab${i}`);
+                if (i === bookNum) {
+                    content.classList.remove('hidden');
+                    tab.classList.remove('bg-cosmic-800', 'text-slate-300');
+                    tab.classList.add('bg-sunset-gold', 'text-cosmic-950', 'glow-gold');
+                } else {
+                    content.classList.add('hidden');
+                    tab.classList.remove('bg-sunset-gold', 'text-cosmic-950', 'glow-gold');
+                    tab.classList.add('bg-cosmic-800', 'text-slate-300');
+                }
+            }
+        }
+
+        // World Encyclopedia Filter
+        function filterEncyclopedia(category) {
+            const cards = document.querySelectorAll('.ency-card');
+            const buttons = document.querySelectorAll('.ency-filter-btn');
+
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-filter') === category) {
+                    btn.classList.remove('bg-cosmic-800', 'text-slate-300');
+                    btn.classList.add('bg-sunset-gold', 'text-cosmic-950', 'glow-gold');
+                } else {
+                    btn.classList.remove('bg-sunset-gold', 'text-cosmic-950', 'glow-gold');
+                    btn.classList.add('bg-cosmic-800', 'text-slate-300');
+                }
+            });
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Universe Stories Switcher
+        function switchStoryBook(bookKey) {
+            const panes = {
+                abyss: document.getElementById('storyPaneAbyss'),
+                knight: document.getElementById('storyPaneKnight'),
+                divine: document.getElementById('storyPaneDivine')
+            };
+            const tabs = {
+                abyss: document.getElementById('storyTabAbyss'),
+                knight: document.getElementById('storyTabKnight'),
+                divine: document.getElementById('storyTabDivine')
+            };
+
+            Object.keys(panes).forEach(key => {
+                if (key === bookKey) {
+                    panes[key].classList.remove('hidden');
+                    tabs[key].classList.remove('bg-cosmic-800', 'text-slate-300');
+                    tabs[key].classList.add('bg-sunset-gold', 'text-cosmic-950', 'glow-gold');
+                } else {
+                    panes[key].classList.add('hidden');
+                    tabs[key].classList.remove('bg-sunset-gold', 'text-cosmic-950', 'glow-gold');
+                    tabs[key].classList.add('bg-cosmic-800', 'text-slate-300');
+                }
+            });
+        }
+
+        // Glossary Switcher
+        function switchGlossary(glossaryKey) {
+            const contents = {
+                abyss: document.getElementById('glossaryContentAbyss'),
+                knight: document.getElementById('glossaryContentKnight'),
+                divine: document.getElementById('glossaryContentDivine')
+            };
+            const btns = {
+                abyss: document.getElementById('glossaryBtnAbyss'),
+                knight: document.getElementById('glossaryBtnKnight'),
+                divine: document.getElementById('glossaryBtnDivine')
+            };
+
+            Object.keys(contents).forEach(key => {
+                if (key === glossaryKey) {
+                    contents[key].classList.remove('hidden');
+                    btns[key].classList.remove('bg-cosmic-800', 'text-slate-300');
+                    btns[key].classList.add('bg-sunset-gold', 'text-cosmic-950', 'glow-gold');
+                } else {
+                    contents[key].classList.add('hidden');
+                    btns[key].classList.remove('bg-sunset-gold', 'text-cosmic-950', 'glow-gold');
+                    btns[key].classList.add('bg-cosmic-800', 'text-slate-300');
+                }
+            });
+        }
+
+        // Glossary Search Filter
+        function filterGlossarySearch() {
+            const query = document.getElementById('glossarySearchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('#glossaryAbyssGrid .glossary-card');
+
+            cards.forEach(card => {
+                const title = card.querySelector('.glossary-title').innerText.toLowerCase();
+                const tag = card.querySelector('.glossary-tag').innerText.toLowerCase();
+                const body = card.querySelector('.glossary-body').innerText.toLowerCase();
+
+                if (title.includes(query) || tag.includes(query) || body.includes(query)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
     </script>
 </body>
 </html>
