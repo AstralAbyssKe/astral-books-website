@@ -53,14 +53,14 @@
 
         .bg-hero-overlay {
             background: linear-gradient(180deg, rgba(14, 11, 22, 0.85) 0%, rgba(14, 11, 22, 0.95) 100%), 
-                        url('https://images.unsplash.com/photo-1506703719100-a0f3a48c0f86?q=80&w=1920&auto=format&fit=crop');
+                        url('https://images.unsplash.com/photo-1752606402449-0c14a2d6af70?q=80&w=870&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D');
             background-size: cover;
             background-position: center;
         }
 
         .bg-stories-overlay {
             background: linear-gradient(180deg, rgba(14, 11, 22, 0.92) 0%, rgba(22, 18, 36, 0.95) 100%), 
-                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1920&auto=format&fit=crop');
+                        url('https://images.unsplash.com/vector-1784289085196-984a7a15fabc?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -117,6 +117,12 @@
             imgElement.src = svgMarkup;
         }
 
+        // Fallback for Logo
+        function loadLogoSvgFallback(imgElement) {
+            const svgMarkup = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="46" fill="%23070913" stroke="%23f59e0b" stroke-width="3"/><circle cx="50" cy="50" r="22" fill="%23f43f5e"/><path d="M50 5 L50 95 M5 50 L95 50" stroke="%23f59e0b" stroke-width="1.5" opacity="0.6"/><text x="50" y="55" fill="%23ffffff" font-family="sans-serif" font-weight="bold" font-size="18" text-anchor="middle">NM</text></svg>`;
+            imgElement.src = svgMarkup;
+        }
+
         function loadStoryFallback(imgElement, titleText) {
             const svgMarkup = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="350" viewBox="0 0 600 350"><defs><linearGradient id="sg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%231a152b"/><stop offset="100%" stop-color="%230e0b16"/></linearGradient></defs><rect width="600" height="350" fill="url(%23sg)"/><path d="M0 0 L600 350 M600 0 L0 350" stroke="%23ff2a70" stroke-width="0.5" opacity="0.15"/><circle cx="300" cy="175" r="50" fill="none" stroke="%23ff2a70" stroke-width="2"/><text x="300" y="180" fill="%23ffffff" font-family="Oswald, sans-serif" font-size="20" letter-spacing="2" text-anchor="middle">${encodeURIComponent(titleText.substring(0,25))}</text><text x="300" y="290" fill="%23ff2a70" font-family="monospace" font-size="12" text-anchor="middle">DISPATCH COVER IMAGE</text></svg>`;
             imgElement.src = svgMarkup;
@@ -139,11 +145,7 @@
                 <!-- Geometric Logo Emblem -->
                 <a href="#" class="group flex flex-col items-center">
                     <div class="w-12 h-12 rounded-full border border-brand-pink/60 flex items-center justify-center bg-brand-cardBg text-brand-pink transition-transform duration-300 group-hover:scale-105 group-hover:border-brand-pink">
-                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                            <polyline points="2 17 12 22 22 17"></polyline>
-                            <polyline points="2 12 12 17 22 12"></polyline>
-                        </svg>
+                        <img id="brandLogoImg" src="logo.jpg" data-expected-file="logo.jpg" alt="Nelson Mwova Logo" class="w-full h-full object-cover" onerror="loadLogoSvgFallback(this)">
                     </div>
                     <h1 class="font-slender text-2xl sm:text-3xl tracking-[0.25em] text-white uppercase mt-2 group-hover:text-brand-pink transition-colors">
                         NELSON MWOVA
@@ -377,7 +379,7 @@
                     </div>
                     <div class="px-6 pb-6 pt-2 border-t border-brand-borderDark/40 flex justify-between items-center">
                         <span class="text-[10px] font-mono text-slate-400">PDF DIRECTIVE</span>
-                        <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 border border-brand-pink text-brand-pink hover:bg-brand-pink hover:text-white font-slender text-xs uppercase tracking-widest transition-colors">
+                        <a href="https://drive.google.com/file/d/110aX8OKn-aUb9SOiawe2yj-KPMrFPAA3/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 border border-brand-pink text-brand-pink hover:bg-brand-pink hover:text-white font-slender text-xs uppercase tracking-widest transition-colors">
                             <i class="fa-solid fa-file-pdf mr-1"></i> Read PDF
                         </a>
                     </div>
@@ -404,7 +406,7 @@
                     </div>
                     <div class="px-6 pb-6 pt-2 border-t border-brand-borderDark/40 flex justify-between items-center">
                         <span class="text-[10px] font-mono text-slate-400">PDF INCIDENT REPORT</span>
-                        <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 border border-brand-pink text-brand-pink hover:bg-brand-pink hover:text-white font-slender text-xs uppercase tracking-widest transition-colors">
+                        <a href="https://drive.google.com/file/d/1BD-xcPWHdgzaVckDQ0ZulG9xNhK-Wqwy/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 border border-brand-pink text-brand-pink hover:bg-brand-pink hover:text-white font-slender text-xs uppercase tracking-widest transition-colors">
                             <i class="fa-solid fa-file-pdf mr-1"></i> Read PDF
                         </a>
                     </div>
@@ -431,7 +433,7 @@
                     </div>
                     <div class="px-6 pb-6 pt-2 border-t border-brand-borderDark/40 flex justify-between items-center">
                         <span class="text-[10px] font-mono text-slate-400">PDF TRANSCRIPT</span>
-                        <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 border border-brand-pink text-brand-pink hover:bg-brand-pink hover:text-white font-slender text-xs uppercase tracking-widest transition-colors">
+                        <a href="https://drive.google.com/file/d/1ofvLlQA7JLMcu_BVkG6EyixnWvO9-Pjf/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 border border-brand-pink text-brand-pink hover:bg-brand-pink hover:text-white font-slender text-xs uppercase tracking-widest transition-colors">
                             <i class="fa-solid fa-file-pdf mr-1"></i> Read PDF
                         </a>
                     </div>
@@ -458,7 +460,7 @@
                     </div>
                     <div class="px-6 pb-6 pt-2 border-t border-brand-borderDark/40 flex justify-between items-center">
                         <span class="text-[10px] font-mono text-slate-400">PDF RESEARCH DISPATCH</span>
-                        <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 border border-brand-pink text-brand-pink hover:bg-brand-pink hover:text-white font-slender text-xs uppercase tracking-widest transition-colors">
+                        <a href="https://drive.google.com/file/d/1QIlenqGkhBvuJXmd3i0-sChORDv3iXon/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 border border-brand-pink text-brand-pink hover:bg-brand-pink hover:text-white font-slender text-xs uppercase tracking-widest transition-colors">
                             <i class="fa-solid fa-file-pdf mr-1"></i> Read PDF
                         </a>
                     </div>
@@ -486,7 +488,7 @@
                     <div class="px-6 pb-6 pt-2 border-t border-brand-borderDark/40 flex justify-between items-center">
                         <span class="text-[10px] font-mono text-slate-400">SHORT STORY PDF</span>
                         <a href="https://google.com" target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 border border-brand-pink text-brand-pink hover:bg-brand-pink hover:text-white font-slender text-xs uppercase tracking-widest transition-colors">
-                            <i class="fa-solid fa-file-pdf mr-1"></i> Read PDF
+                            <i class="fa-solid fa-file-pdf mr-1"></i> Coming Soon
                         </a>
                     </div>
                 </div>
@@ -521,7 +523,8 @@
                     </h2>
 
                     <p class="text-base text-slate-300 leading-relaxed font-light">
-                        As an author fascinated by the concepts of universal laws, alien civilizations, and the profound nature of duality, I created <strong class="text-brand-pink">The Astral Trilogy</strong> to combine high-stakes galactic intrigue with deeply human narratives of pain, hope, and redemption.
+                        Nelson Mwova is a Kenyan science fiction author and geospatial professional with a career in the space and humanitarian sectors. Born in Machakos and educated at the University of Nairobi, Nelson established a career in geospatial and space sciences. Nelson has been writing since 2018, but it was until 2024 that Nelson began his formal writing journey with the writing of his first book, <strong class="text-brand-pink"> Astral Abyss</strong>, a project sparked by his father’s stories and their shared lifelong fascination with the cosmos. Since then, his portfolio has expanded to include The Mandala Protocol  world building narratives and the upcoming Astral Knight ; narratives that remain connected yet distinct in nature. Nelson explores science fiction by blending plausible scientific concepts with vivid imagination and deeply emotional storytelling that define his passions and ideation of the alternate worlds and their characters.  When not penning stories, he is an avid gamer and swimmer.                            
+Astral. Astral Abyss is his first novel.
                     </p>
 
                     <p class="text-sm text-slate-300 leading-relaxed">
