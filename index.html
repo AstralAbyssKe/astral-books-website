@@ -136,9 +136,11 @@
 </head>
 <body class="bg-brand-darkBg text-slate-200 antialiased selection:bg-brand-pink selection:text-white">
 
-    <!-- TOP HEADER / BRAND NAVIGATION (Astrid Cole Inspired Slender Menu) -->
-    <header class="w-full bg-[#0a0812]/95 border-b border-brand-borderDark/80 sticky top-0 z-50 backdrop-blur-md">
+    <!-- TOP HEADER / BRAND NAVIGATION -->
+    <header id="mainHeader" class="w-full bg-[#0a0812]/95 border-b border-slate-800/80 sticky top-0 z-30 backdrop-blur-md transition-transform duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5">
+            
+    <!-- Inner content remains the same --></header>
             
             <!-- Centered Logo & Slender Name Identifier -->
             <div class="flex flex-col items-center justify-center space-y-2 mb-4">
@@ -150,12 +152,12 @@
                     <h1 class="font-slender text-2xl sm:text-3xl tracking-[0.25em] text-white uppercase mt-2 group-hover:text-brand-pink transition-colors">
                         NELSON MWOVA
                     </h1>
-                    <span class="text-[10px] font-mono tracking-[0.3em] text-brand-pink uppercase">Sci-Fi Universe Architect</span>
+                    <span class="text-[10px] font-mono tracking-[0.3em] text-brand-pink uppercase">The Astral Universe</span>
                 </a>
             </div>
 
             <!-- Horizontal Slender Navigation Links & CTA -->
-            <div class="flex flex-col md:flex-row items-center justify-between border-t border-brand-borderDark/50 pt-3 gap-4">
+            <div class="flex flex-col md:flex-row items-center justify-between border-t border-brand-borderDark/50 pt-2 gap-4">
                 
                 <!-- Navigation Items -->
                 <nav class="flex flex-wrap justify-center items-center gap-6 sm:gap-8 text-xs font-slender tracking-[0.2em] uppercase">
@@ -164,7 +166,6 @@
                     <a href="#universe-stories" class="text-slate-300 hover:text-brand-pink transition-colors">Universe Stories</a>
                     <a href="#about-author" class="text-slate-300 hover:text-brand-pink transition-colors">About</a>
                     <a href="#glossary-section" class="text-slate-300 hover:text-brand-pink transition-colors">Glossary</a>
-                    <a href="#writing-progress" class="text-slate-300 hover:text-brand-pink transition-colors">Progress</a>
                 </nav>
 
                 <!-- Action Button & Social Links -->
@@ -194,7 +195,7 @@
                 <div class="lg:col-span-5 flex justify-center">
                     <div class="relative w-full max-w-sm aspect-[2/3] rounded-lg overflow-hidden shadow-2xl border border-brand-pink/30 group">
                         <!-- IMAGE LOCATION: Replace with book1.jpg -->
-                        <img id="heroBookCover" src="book1.jpg" data-expected-file="book1.jpg" alt="Astral Abyss Cover" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="loadBookFallback(this, 'Astral Abyss', 'BOOK I')">
+                        <img id="heroBookCover" src="3dcover.png" data-expected-file="3dcover.png" alt="Astral Abyss Cover" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" onerror="loadBookFallback(this, 'Astral Abyss', 'BOOK I')">
                         <div class="absolute top-4 left-4 px-3 py-1 bg-brand-pink text-white font-slender text-xs uppercase tracking-widest shadow-md">
                             Now Available
                         </div>
@@ -240,7 +241,7 @@
                             <a href="https://www.amazon.com/dp/9914509312" target="_blank" rel="noopener noreferrer" class="px-6 py-3 font-slender text-xs uppercase tracking-widest btn-brand inline-flex items-center">
                                 <i class="fa-brands fa-amazon mr-2 text-base"></i> Amazon Kindle
                             </a>
-                            <a href="https://www.kobo.com" target="_blank" rel="noopener noreferrer" class="px-6 py-3 font-slender text-xs uppercase tracking-widest btn-brand-outline inline-flex items-center">
+                            <a href="https://www.kobo.com/ww/en/ebook/astral-abyss?sId=5a54eb11-9bd7-4787-abf2-e31b1c695d78&ssId=B_dOeEv19nbThTiJ0Wi6b&cPos=27" target="_blank" rel="noopener noreferrer" class="px-6 py-3 font-slender text-xs uppercase tracking-widest btn-brand-outline inline-flex items-center">
                                 <i class="fa-solid fa-book-open mr-2"></i> Kobo Books
                             </a>
                             <a href="https://barnesandnoble.com" target="_blank" rel="noopener noreferrer" class="px-6 py-3 font-slender text-xs uppercase tracking-widest bg-brand-cardBg border border-brand-borderDark text-slate-200 hover:border-brand-pink transition-colors inline-flex items-center">
@@ -256,7 +257,7 @@
     </section>
 
 
-    <!-- SECTION 2: THE SERIES / THE TRILOGY (Clean White Background - Astrid Cole Style) -->
+    <!-- SECTION 2: THE SERIES / THE TRILOGY (Clean White Background) -->
     <section id="series-section" class="bg-brand-lightBg text-slate-900 py-16 sm:py-24">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             
